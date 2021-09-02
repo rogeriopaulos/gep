@@ -3,8 +3,8 @@
 
 Werkzeug==1.0.1  # https://github.com/pallets/werkzeug
 ipdb==0.13.7  # https://github.com/gotcha/ipdb
-# psycopg2==2.7.4 --no-binary psycopg2  # https://github.com/psycopg/psycopg2
-psycopg2-binary  # https://github.com/psycopg/psycopg2
+psycopg2==2.8.6  # https://github.com/psycopg/psycopg2
+# psycopg2-binary  # https://github.com/psycopg/psycopg2
 piprot==0.9.11  # https://github.com/sesh/piprot
 pip-upgrader==1.4.15  # https://github.com/simion/pip-upgrader
 watchgod==0.6  # https://github.com/samuelcolvin/watchgod
