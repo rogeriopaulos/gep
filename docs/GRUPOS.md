@@ -13,7 +13,7 @@ python manage.py create_groups
 Caso tenha optado pelo deploy da aplicação em containers Docker, o comando correto é (na raiz do projeto):
 
 ```
-docker-compose run --rm django python manage.py create_groups
+docker-compose -f production.yml run --rm django python manage.py create_groups
 ```
 
 Acesse o **Painel de Administração** da aplicação e clique em _AUTENTICAÇÃO E AUTORIZAÇÃO > Grupos_ e certifique que os grupos **COORDENADORES** e **USUÁRIOS** foram criados.

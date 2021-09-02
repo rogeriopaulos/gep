@@ -184,7 +184,7 @@ $ vi .envs/.production/.envsfile
 
 DJANGO_SETTINGS_MODULE=settings.production
 DJANGO_SECRET_KEY=<secret-key> # ex: EeMHtbY0JNIV9lZQaKpeeMjBTx3k3i0Chj
-DJANGO_ADMIN_URL=<url> # ex: admin
+ADMIN_URL_PATH=<url> # ex: admin
 DJANGO_ALLOWED_HOSTS=<ip_externo_do_host>
 DJANGO_SECURE_SSL_REDIRECT=False
 EMAIL_HOST=<host_smtp> # ex: smtp.gmail.com
@@ -472,7 +472,7 @@ Em seguida, insira todas as variáveis de ambiente exigidas pela aplicação, pr
 # ------------------------------------------------------------------------------
 DJANGO_SETTINGS_MODULE=settings.production
 DJANGO_SECRET_KEY=<secret-key> # ex: EeMHtbY0JNIV9lZQaKpeeMjBTx3k3i0Chj
-DJANGO_ADMIN_URL=<url> # ex: admin
+ADMIN_URL_PATH=<url> # ex: admin
 DJANGO_ALLOWED_HOSTS=<ip_externo_do_host>
 
 # Security
@@ -487,13 +487,16 @@ EMAIL_PORT=<port>
 EMAIL_HOST_USER=<host_user>
 EMAIL_HOST_PASSWORD=<password>
 
-# Gunicorn
-# ------------------------------------------------------------------------------
-WEB_CONCURRENCY=4
-
 # dajngo-maintenance_mode
 # ------------------------------------------------------------------------------
 MAINTENANCE_ADMIN_URL=<url_do_painel_admin>+"login" # ex: adminlogin
+
+# Redis
+# ------------------------------------------------------------------------------
+REDIS_URL=redis://redis:6379/0
+CELERY_BROKER_URL=$REDIS_URL
+REDIS_HOST=redis
+REDIS_PORT=6379
 
 # .envs/.production/.postgres
 
@@ -511,27 +514,27 @@ POSTGRES_PASSWORD=<senha_do_BD>
 Na raiz do projeto, execute:
 
 ```
-docker-compose build
+docker-compose -f production.yml build
 ```
 
 **3)** Rode os containers em modo background
 
 ```
-docker-compose up -d
+docker-compose -f production.yml up -d
 ```
 
 **4)** Crie as tabelas necessárias no banco de dados
 
 ```
-$ docker-compose run --rm django python manage.py makemigrations  # caso não haja arquivos de migração
+$ docker-compose -f production.yml run --rm django python manage.py makemigrations  # caso não haja arquivos de migração
 
-$ docker-compose run --rm django python manage.py migrate
+$ docker-compose -f production.yml run --rm django python manage.py migrate
 ```
 
 **5)** Crie um superusuário
 
 ```
-$ docker-compose run --rm django python manage.py createsuperuser
+$ docker-compose -f production.yml run --rm django python manage.py createsuperuser
 ```
 
 Em seguida, forneça os dados solicitados.
