@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load bootstrap3 %}
+
+{% block custom_estilos %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/core_home.css' %}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+{% endblock %}
+
+{% block modal_recuperacao_senha %}
+<!-- Janela de Recuperação de Senha -->
+<div id="modal-container">
+  <form class="active modal fade" id="janela_senha" action="{% url 'account:password_reset' %}" method="post">
+    {% csrf_token %}
+    <div class="modal-dialog">
+      <div style="background-color: #ffffff" class="modal-content">
+        <!-- cabecalho -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+          <h4 class="modal-title"><b>Recuperar senha</b></h4>
+          <p class="text-center texto_senha"><i>
+            Um link de recuperação será enviado para este endereço.<br>
+            Caso não se recorde qual o email, entre em contato com os administradores.
+          </i></p>
+        </div>
+        <!-- corpo -->
+        <div class="modal-body">
+            <div class="form-group row">
+              <label class="sr-only col-md-4" for="id_email">Email</label>
+                <div class="col-md-12">
+                  <input type="email" name="email" maxlength="254" class="form-control"
+                    placeholder="Digite seu e-mail cadastrado" title="" required id="id_email" />
+                </div>
+            </div>
+        </div>
+        <!-- rodape -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock modal_recuperacao_senha %}
+
+{% block modal_solicitar_acesso %}
+<!-- Solicitar Acesso -->
+<div class="modal fade" id="modal_soliciar_acesso">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="modal_soliciar_acessoLabel">SOLICITAR ACESSO</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          O registro de novo usuário é realizado diretamente pelo órgão
+          a qual você é vinculado.
+        </p>
+        <p>
+          Para realizar o cadastro, entre em contato com a administração
+          da unidade informando os seguintes dados:
+        </p>
+        <ul>
+          <li><strong>Nome completo</strong></li>
+          <li><strong>E-mail</strong></li>
+          <li><strong>Órgão de Lotação</strong></li>
+          <li><strong>Cargo</strong></li>
+          <li><strong>Matrícula</strong></li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock modal_solicitar_acesso %}
+
+{% block conteudo %}
+  <div class="container fluid">
+  {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+      <strong>{{ message|escape }}</strong>
+    </div>
+    {% endfor %}
+  {% endif %}
+  {% if form.errors %}
+    {% for field in form %}
+      {% for error in field.errors %}
+        <div class="alert alert-danger">
+          <strong>{{ error|escape }}</strong>
+        </div>
+      {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+      <div class="alert alert-danger">
+        <strong>{{ error|escape }}</strong>
+      </div>
+    {% endfor %}
+  {% endif %}
+  </div>
+  <div class="capa">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="col-md-8 home-left">
+            <div class="logo-box">
+              <img src="{% static 'css/imagens_css/logo.png' %}">
+            </div>
+            <hr>
+            <h3 class="text-center">Gestão Eletrônica de Processos</h5>
+            <h4 class="text-center">Sistema de controle e registro de atos de órgãos públicos</h6>
+          </div>
+          <div class="col-md-4" id="div-login">
+            <form action="{% url 'account:login' %}" method="post">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="id_username">Usuário/E-mail</label>
+                <input type="text" name="username" autofocus maxlength="254" class="form-control"
+                  placeholder="Usuário / Email" title="" required id="id_username" />
+              </div>
+              <div class="form-group">
+                <label for="id_password">Senha</label>
+                <input type="password" name="password" class="form-control" placeholder="Senha" title="" required id="id_password" />
+              </div>
+              <button type="submit" class="btn btn-primary btn-block" id="btn-submit">
+                <strong>ENTRAR</strong>
+              </button>
+              <button type="button" class="btn btn-info btn-block" id="btn-register"
+                data-toggle="modal" data-target="#modal_soliciar_acesso">
+                <strong>SOLICITAR ACESSO</strong>
+              </button>
+            </form>
+            <hr>
+            <p class="text-center text-muted">
+              Esqueceu a sua senha? <a href="" data-toggle="modal" data-target="#janela_senha">Clique aqui.</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock conteudo %}

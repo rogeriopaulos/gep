@@ -1,0 +1,13 @@
+<script type="text/javascript" >
+    function conteudoof() {
+        var despacho = "Modelo de despacho";
+        document.getElementById("id_conteudo").innerHTML = despacho;
+     }
+    window.onload = function()  {
+        conteudoof();
+        CKEDITOR.replace( 'id_conteudo', {
+            width:['21.0cm'],
+            height:['29.7cm'],
+        });
+    };
+</script>

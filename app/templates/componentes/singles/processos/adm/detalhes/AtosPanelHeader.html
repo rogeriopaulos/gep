@@ -1,0 +1,21 @@
+<h5>
+  <strong>{{forloop.revcounter}} |</strong>
+  <strong  class="data_filtro" style="color: #777;">
+    {{ item.get_ato_label }} {% firstof item.documentosgeraisadm.get_documento %} - {{ item.criacao|date:'d/m/Y' }}
+  </strong>
+</h5>
+<span class="pull-right panel_detalhes">
+  {% if not item.anulado %}
+    <span data-toggle="tooltip" data-placement="left" title="Noticar">
+      <a class="glyphicon glyphicon-bell clickable" href="{% url 'notifier:ato_adm' model_pk=item.pk %}"></a>
+    </span>
+    {% if is_coordenador %}
+    <span data-toggle="tooltip" data-placement="bottom" title="Anular Ato">
+      <i class="glyphicon glyphicon-ban-circle" data-toggle="modal" data-target="#anularAtoModal" data-item="{{ item.id }}"></i>
+    </span>
+    {% endif %}
+  {% else %}
+    <span class="text-anulado">ANULADO</span>
+  {% endif %}
+  <i class="glyphicon glyphicon-minus"></i>
+</span>

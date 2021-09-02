@@ -1,0 +1,76 @@
+version: "3"
+
+volumes:
+  production_postgres_data:
+  production_postgres_backup:
+  production_media:
+
+networks:
+  db:
+  app:
+
+services:
+  django: &django
+    build:
+      context: .
+      dockerfile: ./compose/local/django/Dockerfile
+    image: gep_production_django
+    networks:
+      - app
+      - db
+    volumes:
+      - production_media:/app/media
+    depends_on:
+      - postgres
+      - redis
+    env_file:
+      - ./.envs/.production/.django
+      - ./.envs/.production/.postgres
+    command: /start.sh
+    container_name: gep-django
+    restart: unless-stopped
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./compose/production/postgres/Dockerfile
+    image: gep/psql
+    volumes:
+      - production_postgres_data:/var/lib/postgresql/data
+      - production_postgres_backup:/backups
+    env_file:
+      - ./.envs/.production/.postgres
+    networks:
+      - db
+    container_name: gep-psql
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:1.19-alpine
+    networks:
+      - app
+    ports:
+      - "80:80"
+      # - "443:443"
+    volumes:
+      - production_media:/media
+      - ./compose/production/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./compose/production/nginx/gep.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - django
+    container_name: gep-nginx
+    restart: unless-stopped
+
+  redis:
+    image: redis:5
+    networks:
+      - app
+    container_name: gep-redis
+    restart: unless-stopped
+
+  celeryworker:
+    <<: *django
+    image: gep_production_celery
+    command: /start-celeryworker.sh
+    container_name: gep-celeryworker
+    ports: []

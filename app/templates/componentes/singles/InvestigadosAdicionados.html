@@ -1,0 +1,23 @@
+{% if investigados %}
+<div class="col-md-8 col-md-offset-2 table-responsive" id="divInvestigadosAdicionados">
+  <h4  class="text-center">INVESTIGADOS(AS) ADICIONADOS(AS)</h4>
+  <table class="table table-striped" id="investigadosAdicionadosTable">
+    <thead>
+      <tr>
+        <th>Data Criação</th>
+        <th>Investigado(a)</th>
+        <th>CPF/CNPJ</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for investigado in investigados %}
+      <tr>
+        <td>{{ investigado.criacao|date:'d/m/Y' }}</td>
+        <td>{{ investigado.nome }}</td>
+        <td>{% if investigado.cpf %}{{ investigado.cpf }}{% else %}{{ investigado.cnpj }}{% endif %}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}

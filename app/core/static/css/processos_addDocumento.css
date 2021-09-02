@@ -1,0 +1,14 @@
+.form-group.has-error {
+    background-color: white;
+    padding: 1rem;
+    border: 2px solid black;
+    border-radius: 1rem;
+}
+
+div#dp-colunas {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border: solid 1px #ddd;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}

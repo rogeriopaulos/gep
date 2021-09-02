@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load bootstrap3 %}
+
+{% block title %}- Cadastro{% endblock title %}
+
+{% block custom_estilos %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/registro.css' %}">
+{% endblock %}
+
+{% block modal-login %}
+<!-- Janela de Login -->
+<div id="modal-container">
+  <form class="active modal fade" id="janela_login" action={% url 'account:login' %} method="post">
+    {% csrf_token %}
+    <div class="modal-dialog modal-sm">
+      <div style="background-color: #ffffff" class="modal-content">
+        <!-- cabecalho -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+                <span>&times;</span>
+              </button>
+          <h4 class="modal-title">Efetuar login</h4>
+        </div>
+        <!-- corpo -->
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="sr-only" for="id_username">Usuário</label><input type="text" name="username" autofocus maxlength="254" class="form-control" placeholder="Usuário / Email" title="" required id="id_username" /></div>
+          <div class="form-group">
+            <label class="sr-only" for="id_password">Senha</label><input type="password" name="password" class="form-control" placeholder="Senha" title="" required id="id_password" /></div>
+          <input type="hidden" name="next" value="{{ next }}" />
+        </div>
+        <!-- rodape -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Logar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
+
+{% block conteudo %}
+<div class="container cadastro">
+  <div class="row">
+    <div class="page-header col-md-7">
+      <h2>Cadastro</h2>
+      <p class="text-muted">Solicitação sujeita a aprovação</p>
+    </div>
+    <!-- page-header -->
+    <div class="col-md-5">
+      <img src="{% static "imagens/digitando.jpg" %}" class="img-responsive decoracao">
+    </div>
+  </div>
+
+  <hr class="hr-processo">
+
+  <div class="row" id="form-register">
+  {% bootstrap_messages %}
+    <div class="row">
+      <div class="col-md-12">
+        <form id="form_registro" action={% url 'account:register' %} "." method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div>
+            <div>
+              <div>
+                <div class="form-group col-md-4">
+                  {% bootstrap_field user_form.username show_help=False %}
+                </div>
+                <div class="form-group col-md-4">
+                  {% bootstrap_field user_form.password1 show_help=False %}
+                </div>
+                <div class="form-group col-md-4">
+                  {% bootstrap_field user_form.password2 show_help=False %}
+                  <span id='message'></span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="form-group col-md-6">
+                {% bootstrap_field user_form.first_name %}
+              </div>
+              <div class="form-group col-md-6">
+                {% bootstrap_field user_form.last_name %}
+              </div>
+            </div>
+            <div>
+              <div class="col-md-6 form-group">
+                {% bootstrap_field user_form.email %}
+              </div>
+              <div class="form-group col-md-6">
+                {% bootstrap_field profile_form.nascimento %}
+              </div>
+            </div>
+            <div>
+              <div>
+                <div class="col-md-6 form-group">
+                  {% bootstrap_field profile_form.orgao_link %}
+                </div>
+              </div>
+              <div>
+                <div class="col-md-6 form-group">
+                  {% bootstrap_field profile_form.cargo_link %}
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div class="form-group col-md-4">
+                  {% bootstrap_field profile_form.cpf %}
+                </div>
+                <div class="form-group col-md-4">
+                  {% bootstrap_field profile_form.cel_funcional %}
+                </div>
+                <div class="form-group col-md-4">
+                  {% bootstrap_field profile_form.cel_pessoal %}
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div class="col-md-6 form-group">
+                  {% bootstrap_field profile_form.lotacao %}
+                </div>
+              </div>
+              <div>
+                <div class="col-md-6 form-group">
+                  {% bootstrap_field profile_form.funcao %}
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div class="col-md-10 form-group">
+                  {% bootstrap_field profile_form.endereco %}
+                </div>
+              </div>
+              <div>
+                <div class="col-md-2 form-group">
+                  {% bootstrap_field profile_form.cep %}
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div class="form-group col-md-4">
+                  {% bootstrap_field profile_form.matricula %}
+                </div>
+                <div class="form-group col-md-4">
+                  {% bootstrap_field profile_form.identidade %}
+                </div>
+                <div class="form-group col-md-4">
+                  {% bootstrap_field profile_form.org_identidade %}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-primary btn-block" id="btn-register">CADASTRAR</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
+
+{% block custom_js_final %}
+  <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+  <script src="{% static 'js/masksInputs.js' %}"></script>
+{% endblock %}

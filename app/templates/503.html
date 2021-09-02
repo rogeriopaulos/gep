@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>GEP</title>
+  <link rel="icon" href="{% static 'imagens/favicon.png' %}">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+  <!-- Font Awesome 4.7.0 -->
+  <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+  <!-- Normalize CSS - Compatibilidade com Browsers Antigos -->
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/normalize.css' %}">
+  <!-- Estilo Customizado -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/core_base.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/core_aviso.css' %}">
+</head>
+<body class="transition">
+
+  <div class="conteiner conteudo">
+    <div class="container theme-showcase" role="main">
+      <div class="jumbotron page-header">
+        <img src="{% static 'imagens/favicons/logo-192x192.png' %}" alt="Logo">
+        <hr />
+        <h2>Sistema em manutenção...</h2>
+        <p>Neste momento, estamos realizado uma manutenção em nossos sistemas. Por favor, tente acessar mais tarde.</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

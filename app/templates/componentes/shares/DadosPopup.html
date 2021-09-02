@@ -1,0 +1,84 @@
+{% load static %}
+{% load bootstrap3 %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% bootstrap_css %}
+    <link rel="stylesheet" type="text/css" href={% static "css/popupdnisp.css" %}>
+    <link rel="stylesheet" type="text/css" href={% static "js/jquery-ui-1.12.1/jquery-ui.css" %}>
+    <script type="text/javascript" src={% static "js/jquery-3.2.1.js" %}></script>
+    <script type="text/javascript" src={% static "js/prevent_multiple_submit.js" %}></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h3 class="text-center">{% block sub-titulo %}INSERIR ARQUIVO{% endblock sub-titulo %}</h3>
+          <form action="." id="myform" method="post" class="form" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% block aviso_docsDnisp %}
+            <ul>
+              <li>
+                <p class="dp-popdnisp">
+                Caso necessiste inserir vários arquivos,
+                compacte-os no formato <em>.zip ou .rar</em>.
+              </p>
+              </li>
+              <li>
+                <p class="dp-popdnisp">
+                  Extensões permitidas: {% for ext in allowed_extensions %}{{ ext }}{% if not forloop.last %}, {% endif %}{% endfor %}.
+                </p>
+              </li>
+              <li>
+                <p class="dp-popdnisp">
+                  Tamanaho máximo permitido: {{ max_size|filesizeformat }}.
+                </p>
+              </li>
+              <li>
+                <p class="dp-popdnisp">
+                  Após inserir o arquivo, confirme se o link de
+                  <em>"Download"</em> encontra-se disponível.
+                </p>
+              </li>
+              <li>
+                <p class="dp-popdnisp">
+                  Certifique-se de que o nome do arquivo tenha no máximo <em>100 caracteres</em>.
+                </p>
+              </li>
+            </ul>
+            {% endblock aviso_docsDnisp %}
+            <div class="btn-group btn-group-justified">
+              {% buttons %}
+              <button type="submit" onclick="" class="btn btn-primary pull-left">Salvar</button>
+              {% endbuttons %}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      window.onunload = refreshParent;
+      function refreshParent() {
+          window.opener.location.reload(true);
+          self.close();
+          closeDetalhes();
+      }
+
+      function closeDetalhes() {
+        var path = window.location.pathname;
+        var arrayPath = path.split('/');
+        var lastPath = arrayPath[arrayPath.length - 2];
+        if (lastPath == 'detalhes') {
+          window.close();
+        }
+      }
+    </script>
+    {% block customPopupJs_final %}
+    {% endblock customPopupJs_final %}
+  </body>
+</html>

@@ -1,0 +1,20 @@
+{% extends "componentes/shares/DadosPopup.html" %}
+{% load static %}
+
+{% block sub-titulo %}CONFIRMAÇÃO{% endblock sub-titulo %}
+
+{% block aviso_docsDnisp %}
+  <p class="dp-textopopup">
+    <em>Insira o nome do funcionário que recebeu ofício ou o número de protocolo gerado após o envio</em>
+  </p>
+{% endblock %}
+
+{% block customPopupJs_final %}
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#id_nome_confirm').attr("placeholder", 'Ex: FULANO ou 012354-85...').addClass('dp-uppercase');
+  })
+</script>
+<script src="{% static 'js/jquery.mask.min.js' %}"></script>
+<script src="{% static 'js/masksInputs.js' %}"></script>
+{% endblock customPopupJs_final %}

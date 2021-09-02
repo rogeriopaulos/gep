@@ -1,0 +1,11 @@
+# extende de requirements/base.txt
+-r base.txt
+
+# Selenium
+selenium==3.141.0  # Updated from 3.8.0
+
+# Coverage.py
+coverage==5.0.3  # Updated from 4.4.2
+
+# model-mommy
+model_mommy==2.0.0  # Updated from 1.4.0

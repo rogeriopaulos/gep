@@ -1,0 +1,486 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: whitesmoke;
+  font-family: Helvetica, Arial, sans-serif;
+  overflow-x: auto;
+  font-size: 14px;
+}
+
+.transition {
+  -webkit-animation: fadein 0.3s;
+  animation: fadein 0.3s;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0
+  }
+  to {
+    opacity: 1
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0
+  }
+  to {
+    opacity: 1
+  }
+}
+
+/* Posiciona o modal de login/esquecer senha no centro da tela */
+
+.modal {
+  max-height: calc(100% - 100px);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ========= Nav-bar ========= */
+
+span.img-logo {
+  height: 45px;
+  width: 140px;
+  display: block;
+  background: url('imagens_css/logo.png') no-repeat;
+  background-size: contain;
+  color: transparent;
+  margin-top: 0px;
+}
+
+nav.navbar-transparente {
+  padding: 0px 0px;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+}
+
+.navbar {
+  border-radius: 0px;
+}
+
+.navbar-brand {
+  padding: 5px 15px;
+  margin-bottom: 0px
+}
+
+.navbar-collapse {
+  padding: -5px 50px;
+}
+
+#bs-sidebar-navbar-collapse-1 {
+  font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+  font-weight: bold;
+  color: #7e7d7a;
+}
+
+#bs-sidebar-navbar-collapse-1 {
+  position: absolute;
+  z-index: 2;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid #a3a29f;
+}
+
+.page-header {
+  padding-bottom: 9px;
+  margin: 10px 0 5px;
+  border-bottom: none;
+}
+
+.page-header>h2 {
+  font-size: 60px;
+}
+
+.page-header>p {
+  font-size: 30px;
+}
+
+.divisor {
+  width: 1px;
+  height: 16px;
+  background: white;
+  margin: 16px 10px;
+}
+
+.nav-tabs>li>a {
+  color: #9a9c9e;
+}
+
+.navbar-inverse .navbar-nav>li>a, footer .nav a {
+  color: white;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover, footer .nav a:hover {
+  color: #7e7d7a;
+  background: none;
+}
+
+.badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 2px 5px;
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: #ff1b00;
+  border-radius: 10px;
+}
+
+/*-- Barra de pesquisa --*/
+
+#pesquisa input[type=text] {
+  width: 280px;
+}
+
+#pesquisa {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+/*-- Página de resultado da pesquisa --*/
+
+#pesquisa table {
+  font-size: 10px;
+}
+
+#barra {
+  font-size: calc(0.1em + 0.1vmin);
+}
+
+/* ========= Fim Nav-bar ========= */
+
+/* ========= Estilos padrões do conteúdo das páginas ========= */
+
+.conteudo {
+  margin-top: 75px;
+  height: 89.5%;
+  overflow: auto;
+  background: transparent;
+  background-attachment: fixed;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #424242;
+  text-align: justify;
+  overflow-x: hidden;
+}
+
+.cadastro {
+  margin-bottom: 10px;
+  min-height: 88.5%;
+  overflow: hidden;
+  background: transparent;
+  background-attachment: fixed;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #424242;
+  text-align: justify;
+  overflow-x: hidden;
+}
+
+.div.container.cadastro {
+  margin-top: 0px;
+}
+
+div.form-group {
+  margin-bottom: 10px;
+}
+
+/* ========= Fim Estilos padrões ========= */
+
+/* ============= Botoes ============= */
+
+.btn-custom {
+  color: white;
+  border-radius: 500px;
+  -webkit-border-radius: 500px;
+  -moz-border-radius: 500px;
+  text-transform: uppercase;
+  transition: background 0.4s, color 0.4s;
+}
+
+.btn-roxo {
+  border: 2px solid white;
+  background: #7e7d7a;
+  width: 15rem;
+}
+
+.btn-roxo:hover {
+  background-color: #b0afac;
+  color: black;
+}
+
+.btn-branco {
+  border: 2px solid white;
+  color: #7e7d7a;
+}
+
+.btn-branco:hover {
+  background-color: white;
+  color: black;
+}
+
+/* ============= Fim Botoes ============= */
+
+/* ============= Rodapé ============= */
+
+footer {
+  background: rgba(0, 0, 0, 0.6);
+  font-family: 'Roboto', sans-serif;
+}
+
+div.links-row {
+  padding: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.col-title {
+  margin-left: 5px;
+  color: #919496;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.footer-notitle-col {
+  margin-top: 20px;
+}
+
+.credits-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: white;
+  font-weight: 300;
+  font-size: 1.1rem;
+}
+
+@media screen and (max-width: 767px) {
+  span.img-logo {
+    display: none;
+  }
+  div.links-row {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .footer-notitle-col {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+}
+
+/* ============= Fim Rodapé ============= */
+
+/* ========================= Tipografia ======================== */
+
+h1 {
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  margin-bottom: 5px;
+}
+
+/* Media queries */
+
+/* xs < 768 */
+
+@media screen and (max-width: 767px) {
+  h1 {
+    font-size: 40px;
+  }
+  .btn-custom {
+    margin: 10px 15px;
+  }
+}
+
+/* sm */
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 60px;
+  }
+}
+
+/* md */
+
+@media screen and (min-width: 992px) {
+  h1 {
+    font-size: 70px;
+  }
+}
+
+/* lg */
+
+@media screen and (min-width: 1199px) {
+  h1 {
+    font-size: 80px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .navbar-header {
+    float: none;
+  }
+  .navbar-left, .navbar-right {
+    float: none !important;
+  }
+  .navbar-toggle {
+    display: block;
+  }
+  .navbar-collapse.collapse {
+    display: none!important;
+  }
+  .navbar-nav {
+    float: none!important;
+  }
+  .navbar-nav>li {
+    float: none;
+  }
+  .collapse.in {
+    display: block !important;
+  }
+}
+
+/*-- Fim Media queries --*/
+
+h2 {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+h3 {
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+/*-- Linha Horizontal --*/
+
+hr.hr-processo {
+  color: solid grey;
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+/* ========================= Fim ======================== */
+
+/*============ Imagem do cadastro e páginas acessórias ============*/
+
+.decoracao {
+  display: block;
+  border: 3px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 0 2px 1px rgba(176, 175, 172, 0.5);
+  margin: 0px;
+  float: right;
+  width: 50%;
+}
+
+/*========================= Fim Imagem =========================*/
+
+/*-- Mensagem de sucesso de alteração de senha --*/
+
+.senha_alterada {
+  margin-top: 25px;
+  font-size: 30px;
+  font-style: italic;
+}
+
+/*-- Fim --*/
+
+/*-- Dashboard --*/
+
+.alert {
+  padding: 10px 30px 10px 30px;
+  margin-bottom: 10px;
+  margin-right: 15px;
+}
+
+.
+/*-- Fim --*/
+
+/* =========== Estilo padrão das tabelas =========== */
+
+/* #tabelas {}
+
+.tabelas table {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px 10px;
+  background-color: white;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  margin-top: 10px;
+}
+
+.tabelas thead {
+  color: #777;
+} */
+
+/* =========== Fim padrão das tabelas =========== */
+
+/* =========== Estilo padrão dos links =========== */
+
+.link-lista a:link, .link-lista a:visited {
+  text-decoration: none;
+  color: #132ba1;
+}
+
+.link-lista a:hover {
+  color: #04125a;
+}
+
+/* -- Link utilizado nas listas de procedimentos --*/
+
+.card a:link, .card a:visited {
+  text-decoration: none;
+  color: #373737;
+}
+
+.card a:hover {
+  color: #373737;
+}
+
+/* =========== Fim padrão dos links =========== */
+
+@media (min-width: 320px) and (max-width: 480px) {
+  #bs-sidebar-navbar-collapse-1 {
+    position: relative;
+  }
+  form#pesquisa {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 1200px) {
+  #bs-sidebar-navbar-collapse-1 {
+    position: relative;
+  }
+  nav.navbar.fixed-left.navbar-default.sidebar {
+    margin-top: -20px;
+  }
+}
+
+.dp-uppercase {
+  text-transform: uppercase;
+}
+
+#maintenance-warn {
+  position: absolute;
+  margin: 15px;
+}

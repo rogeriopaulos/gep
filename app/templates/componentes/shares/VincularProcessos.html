@@ -1,0 +1,47 @@
+{% load static %}
+{% load bootstrap3 %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% bootstrap_css %}
+    <link rel="stylesheet" type="text/css" href={% static "css/popupdnisp.css" %}>
+    <link rel="stylesheet" type="text/css" href={% static "js/jquery-ui-1.12.1/jquery-ui.css" %}>
+    <script type="text/javascript" src={% static "js/jquery-3.2.1.js" %}></script>
+    <script type="text/javascript" src={% static "js/prevent_multiple_submit.js" %}></script>
+    <script type="text/javascript" src={% static "js/selectize.js" %}></script>
+    <link rel="stylesheet" type="text/css" href={% static "css/selectize.css" %}>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h3 class="text-center">VINCULAR PROCESSOS</h3>
+          <form action="." id="myform" method="post" class="form" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {% for hidden_field in form.hidden_fields %}
+              {{ hidden_field }}
+            {% endfor %}
+
+            {% for field in form.visible_fields %}
+              <div class="form-group">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.help_text %}
+                  <small class="form-text text-muted">{{ field.help_text }}</small>
+                {% endif %}
+              </div>
+            {% endfor %}
+            <button type="submit" onclick="" class="btn btn-primary pull-left">VINCULAR</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src={% static "js/refreshPage.js" %}></script>
+    <script type="text/javascript" src={% static "js/setupForm.js" %}></script>
+  </body>
+</html>

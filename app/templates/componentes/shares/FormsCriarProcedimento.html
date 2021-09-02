@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% load bootstrap3 %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block custom_estilos %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href={% static "js/jquery-ui-1.12.1/jquery-ui.css" %}>
+  {% if form_inter %}
+    <link rel="stylesheet" type="text/css" href={% static "css/criar_processo_interceptacao.css" %}>
+  {% endif %}
+  {% if form_quebra %}
+    <link rel="stylesheet" type="text/css" href={% static "css/criar_processo_quebra.css" %}>
+  {% endif %}
+  {% if form_lab %}
+    <link rel="stylesheet" type="text/css" href={% static "css/criar_processo_lab.css" %}>
+  {% endif %}
+  {% if form_adm %}
+    <link rel="stylesheet" type="text/css" href={% static "css/criar_processo_adm.css" %}>
+  {% endif %}
+  {% if form_intel %}
+    <link rel="stylesheet" type="text/css" href={% static "css/criar_processo_intel.css" %}>
+  {% endif %}
+{% endblock %}
+
+{% block conteudo %}
+<div class="container-fluid cadastro">
+  <h3 class="text-center text-uppercase"><strong>{% block titulo %}{{ title_header }}{% endblock titulo %}</strong></h3>
+  <form action="." method="post" class="form" enctype="multipart/form-data">
+    <div class="bloco">
+      {% crispy form form.helper %}
+    </div>
+    <div class="col-md-12">
+      <div class="text-center" style="width: 20%; margin: 0 auto">
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block text-uppercase">Cadastrar</button>
+          </div>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
+
+{% block custom_js_final %}
+  <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+  <script src="{% static 'js/masksInputs.js' %}"></script>
+  <script src="{% static 'js/prevent_multiple_submit.js' %}"></script>
+  <script src="{% static 'js/jquery-ui-1.12.1/jquery-ui.js' %}"></script>
+  <script src="{% static 'js/inputDatas.js' %}"></script>
+  <script src="{% static 'js/formatFileField.js' %}"></script>
+  {% if form_inter %}
+    <script src="{% static 'js/outrosDisabledInter.js' %}"></script>
+  {% endif %}
+  {% if form_quebra %}
+    <script src="{% static 'js/customCriarQuebra.js' %}"></script>
+  {% endif %}
+  {% if form_adm %}
+    <script src="{% static 'js/outrosDisabled.js' %}"></script>
+  {% endif %}
+  {% if form_intel %}
+      <script src="{% static 'js/intelDisabled.js' %}"></script>
+  {% endif %}
+{% endblock %}

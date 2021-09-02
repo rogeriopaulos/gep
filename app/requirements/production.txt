@@ -1,0 +1,6 @@
+# extende de requirements/base.txt
+-r base.txt
+
+# WSGI Handler
+gunicorn==20.0.4  # https://github.com/benoitc/gunicorn
+psycopg2==2.8 --no-binary psycopg2  # https://github.com/psycopg/psycopg2

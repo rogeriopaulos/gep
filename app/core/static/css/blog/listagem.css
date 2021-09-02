@@ -1,0 +1,254 @@
+/* General
+--------------------------------------------------------------------------*/
+
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h3 {
+    color: #606060;
+    letter-spacing: 4px;
+}
+
+h4 {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+h5 {
+    color: #606060;
+    letter-spacing: 3px;
+}
+
+/* Header
+--------------------------------------------------------------------------*/
+
+.blog_header_container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blog_header_title {
+    border-bottom: 1px solid #e5e3e6;
+}
+
+.blog_header_subtitle {
+    margin-top: 8px;
+}
+
+/* Posts Filter
+------------------------------------------------------------------------------*/
+
+.blog_filter_container {
+    width: 100%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: left;
+    flex-direction: row-reverse;
+}
+
+.blog_filter_container .input_criacao {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.blog_filter_container .input_criacao select {
+    margin-right: 10px;
+}
+
+.blog_filter_container form {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    font-size: 14px;
+    font-family: "Roboto", Arial, sans-serif;
+    color: #0000008c;
+}
+
+.input_group {
+    margin-right: 10px;
+}
+
+.blog_filter_container form input, .blog_filter_container form select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #cecece;
+    height: 100%;
+    background-color: #fff;
+}
+
+.blog_filter_container form input:focus, .blog_filter_container form select:focus {
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+    color: black;
+}
+
+.blog_filter_container form input[name="titulo"] {
+    width: 100%;
+    padding-left: 10px;
+    color: #0000008c;
+}
+
+.blog_filter_container form input[name="titulo"] input:focus {
+    width: 100%;
+    padding-left: 10px;
+    color: #0000008c;
+}
+
+.blog_filter_container .input_titulo {
+    flex-grow: 1;
+}
+
+.blog_filter_container .btn-default {
+    padding: 10px 15px;
+    font-weight: 600;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+}
+
+/* Article
+--------------------------------------------------------------------------*/
+
+.article_row {
+    margin-bottom: 32px;
+}
+
+.article_row>div>h5 {
+    margin-bottom: 32px;
+}
+
+.article_posts_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fa-refresh {
+    margin-right: 16px;
+    font-size: 24px;
+    color: #606060;
+}
+
+.title_divider {
+    color: #606060;
+    margin-top: 8px;
+}
+
+.box_list_articles {
+    border-bottom: 1px solid #e7e5e6;
+    margin-top: 32px;
+    padding: 8px;
+}
+
+.main_container_article {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.col_title {
+    margin-right: 16px;
+}
+
+.article_title {
+    color: #292929;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.tags {
+    margin-top: 24px;
+}
+
+.thumb_img {
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    height: 140px;
+    width: 240px;
+}
+
+.thumb {
+    align-items: center;
+    background-color: #5e5e5e;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    height: 140px;
+    width: 240px;
+}
+
+.thumb img {
+    height: auto;
+    width: 40%;
+}
+
+.empty_posts {
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Pagination
+--------------------------------------------------------------------------*/
+
+div.container_pagination {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 100px;
+}
+
+div.container_pagination .pagination {
+    margin: auto;
+}
+
+/* Aside
+--------------------------------------------------------------------------*/
+
+.aside_container_categories {
+    margin-bottom: 20px;
+}
+
+.aside_container_categories>header>h5 {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.aside_container .aside_container_categories p {
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.aside_container_categories_list ul {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+
+.aside_container_categories_list ul li {
+    padding: 10px 20px;
+}
+
+#glyphicon-tags, #glyphicon-th {
+    margin-right: 8px;
+    color: #6060607a;
+}
+
+.link_clean:hover {
+    font-weight: 400;
+    color: #000;
+}
+
+hr.categories_title_divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}

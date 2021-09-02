@@ -1,0 +1,15 @@
+!.coveragerc
+!.env
+!.pylintrc
+README.md
+design/
+docs/
+*/media
+/app/media
+
+# Arquivos docker
+.docker/
+.docker
+
+*/static/*
+!*/core/static/*

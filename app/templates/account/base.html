@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% load bootstrap3 %}
+{% load static %}
+{% load templates_extras %}
+
+{% block transition %}
+<body>
+{% endblock %}
+
+{% block custom_estilos %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/processos_detalhes.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/account_base.css' %}">
+{% endblock %}
+
+{% block conteudo %}
+  <nav class="navbar fixed-left navbar-default sidebar" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      </div>
+      <div class="collapse navbar-collapse navbar-default" id="bs-sidebar-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="{% url 'account:painel' %}">
+              Home
+              <span class="pull-right hidden-xs showopacity glyphicon glyphicon-option-horizontal"></span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'account:notificacoes' %}">
+              Notificações
+              {% if unread_notifications > 0 %}
+              <span class="badge notifier" id="dp-painel_notifybadge">{{ unread_notifications }}</span>
+              {% else %}<span class="notifier pull-right hidden-xs showopacity glyphicon glyphicon-bell"></span>
+              {% endif %}
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'account:minha_conta' %}">
+              Minha Conta
+              <span class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  {% block conteudo_painel %}{% endblock conteudo_painel %}
+
+{% endblock %}

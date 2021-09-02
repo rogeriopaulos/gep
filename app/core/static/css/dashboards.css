@@ -1,0 +1,159 @@
+.chart-panel {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    border-top: 5px solid #34737f;
+    background-color: white;
+}
+
+.chart-title {
+    border-bottom: 2px solid #E6E9ED;
+    padding: 1px 5px 6px;
+    margin-left: 10px;
+    color: rgb(115, 135, 156);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chart-subtitle {
+    align-items: baseline;
+}
+
+.chart-content {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.charts-duo {
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-zoom {
+    margin-left: 20px;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .chart-content {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .charts-duo {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .chart-title h4 {
+        font-size: 1rem;
+    }
+}
+
+.white-popup {
+    position: relative;
+    background: #FFF;
+    padding: 20px;
+    margin: 40px auto;
+}
+
+.link_charts {
+    text-decoration: none;
+    color: inherit;
+    margin-left: 5px;
+}
+
+#div-chart02 {
+    width: 50%;
+    height: auto;
+}
+
+.data-panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: wrap;
+    font-family: 'Roboto', sans-serif;
+}
+
+.panel.panel-default {
+    height: 200px;
+    width: 350px;
+    -webkit-box-shadow: 13px 12px 5px -7px rgba(0, 0, 0, 0.16);
+    -moz-box-shadow: 13px 12px 5px -7px rgba(0, 0, 0, 0.16);
+    box-shadow: 13px 12px 5px -7px rgba(0, 0, 0, 0.16);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+}
+
+.panel-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.panel-count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.panel-icon {
+    font-size: 5rem;
+}
+
+.count-title {
+    font-size: 6rem;
+    margin-bottom: 30px;
+    font-weight: 900;
+}
+
+#panel-ofexpedidos {
+    background-color: #4daf4a;
+    color: white;
+}
+
+#panel-ofrecebidos {
+    background-color: #ffff33;
+    /* color: black; */
+}
+
+#panel-despachos {
+    background-color: #377eb8;
+    color: white;
+}
+
+#panel-midias {
+    background-color: #ff7f00;
+    color: white;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .panel.panel-default {
+        height: 100px;
+        width: 200px;
+    }
+}
+
+#panel-active {
+    background-color: #31a354;
+    color: white;
+}
+
+#panel-archive {
+    background-color: #fdba00;
+}
+
+#panel-inactive {
+    background-color: #e34a33;
+    color: white;
+}

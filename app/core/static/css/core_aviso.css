@@ -1,0 +1,25 @@
+.page-header > p {
+  font-size: 2rem;
+}
+.page-header > h2 {
+  font-size: 5rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+.texto-contato {
+  font-style: italic;
+}
+.jumbotron {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  padding: 10px 30px 30px 80px;
+  font-size: 16px;
+  color: #f0f8ff;
+  text-align: center;
+  border: 2px solid #f0f8ff;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#btn-pass {
+  background-color: #38707a;
+  font-weight: bold;
+}

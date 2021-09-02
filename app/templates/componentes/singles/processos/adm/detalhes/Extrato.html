@@ -1,0 +1,58 @@
+{% if processo_adm.get_processos_vinculados %}
+  {% include 'componentes/singles/processos/adm/detalhes/ModalProcessosVinculados.html' %}
+{% endif %}
+
+<div class="panel panel-default classe_panel">
+  <div class="panel-heading" style="color: #777">
+    <strong>Processo nº:</strong> {{ processo_adm.numero_processo }}
+    <a class="btn btn-default pull-right" href="{% url 'adm:extrato_pdf_adm' pk=processo_adm.pk %}" data-toggle="tooltip" data-placement="bottom" title="Imprimir Extrato"><i class="fa fa-print fa-lg" aria-hidden="true"></i></a>
+    {% if request.direcao %}<a class="btn btn-default pull-right" href="{% url 'adm:editar_processo_adm' pk=processo_adm.pk %}" data-toggle="tooltip" data-placement="bottom" title="Editar Extrato"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>{% endif %}
+    {% if request.direcao %}<a class="btn btn-default pull-right" href="javascript:void(0);" target="popup" onclick="PopupCenterDual('{% url "adm:vincular_processos" pk=processo_adm.pk %}','popup','600','300'); return false;"><i class="fa fa-link fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Criar Vínculo"></i></a>{% endif %}
+    {% if processo_adm.arquivar %}<h3 class="pull-right dp-arquivado">PROCESSO ARQUIVADO</h3>{% endif %}
+  </div>
+  <div class="panel-body painel-extrato">
+    <div class="row extrato" id="extrato-top">
+      <div class="col-md-4">
+        <strong><p>Conteúdo principal:</strong> {% if processo_adm.outro %}{{ processo_adm.outro|upper }}{% else %}{{ processo_adm.assunto_adm }}{% endif %}</p>
+      </div>
+      <div class="col-md-4">
+        <strong><p>Destinatário:</strong> {{ processo_adm.destino_adm }}</p>
+      </div>
+      <div class="col-md-4">
+        <strong><p>Órgão/Autoridade oficiante:</strong> {{ processo_adm.oficiante }}</p>
+      </div>
+    </div>
+    <div class="row extrato">
+      <div class="col-md-4">
+        <strong><p>E-mail do oficiante:</strong> {{ processo_adm.email|default:'---------' }}</p>
+      </div>
+      <div class="col-md-4">
+        <strong><p>Telefone do oficiante:</strong> {{ processo_adm.fone|default:'---------' }}</p>
+      </div>
+      <div class="col-md-4">
+        <strong><p class="link-lista">Documento:</strong> {% if processo_adm.arquivo %}<a href="{{ processo_adm.arquivo.url }}">Download</a>{% else %}---------{% endif %}</p>
+      </div>
+    </div>
+    <div class="row extrato">
+      <div class="col-md-12">
+        <strong><p>Observação:</strong> {{ processo_adm.observacao|default:'---------' }}</p>
+      </div>
+    </div>
+    <div class="row extrato" id="extrato-bottom">
+      <div class="col-md-6">
+        {% if processo_adm.get_processos_vinculados %}
+        <span class="pull-left btn btn-info" id="processos-vinculados" data-toggle="modal" data-target="#processosVinculados">
+          <i class="fa fa-link fa-lg" aria-hidden="true"></i> Ver processos vinculados
+        </span>
+        {% endif %}
+      </div>
+      <div class="col-md-6">
+        <span class="pull-right" style="font-size: 10px">
+          <em>
+          Criado por <strong>{{ processo_adm.autor }}</strong> em {{ processo_adm.criacao|date:'d/m/Y' }}<br>
+          </em>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

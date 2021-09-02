@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% load bootstrap3 %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block custom_estilos %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/form_geral.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/notificacao.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/select_user.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/processos_filtrar.css' %}">
+{% endblock %}
+
+{% block conteudo %}
+<div class="container-fluid cadastro">
+  {% bootstrap_messages messages %}
+  <h3 class="text-center text-uppercase">
+    DEFINIR PERMISSÕES
+  </h3>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2" id="notificacao_content">
+      {% if has_users_with_perm %}
+      <div class="row infos">
+        <div class="col-md-10 col-md-offset-1">
+          <p>
+            Marque as permissões que deseja atribuir a cada usuário habilitado no processo <strong>{{ num_processo }}</strong>. <br>
+            Em seguida, aperte o botão <strong class="text-success">Definir permissões</strong>.
+          </p>
+          <p class="text-muted warning">
+            <strong class="text-danger"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> IMPORTANTE:</strong>
+            Para <strong>desabilitar</strong> um usuário previamente habilitado neste processo, basta desmarcar todas as permissões
+            atribuídas.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <form action="." method="post" class="form" enctype="multipart/form-data">
+            <div class="bloco">
+              <div class="col-md-10 col-md-offset-1 dp-colwhite">
+                {% crispy formset formset.form.helper %}
+              </div>
+            </div>
+            <div class="row" id="notificacao_btns">
+              <div class="col-md-12 text-center">
+                <div class="form-group">
+                  <button type="submit" class="btn btn-success dp-btnsalvar btn_form_notificar">Definir permissões</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <hr>
+          <p class="text-center info_plus">
+            Você pode modificar essas permissões a qualquer momento, <br>
+            basta clicar no link <strong>Permissões <span class="hidden-xs showopacity glyphicon glyphicon-wrench"></span></strong>
+            no menu lateral do processo respectivo.
+          </p>
+        </div>
+      </div>
+      {% else %}
+      <div class="no-user">
+        <p class="text-muted">Nenhum usuário foi habilitado neste processo.</p>
+        <a class="btn btn-info btn-sm" href="{{ processo_url }}" role="button">
+          <em><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Voltar para o processo</em>
+        </a>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <hr>
+          <p class="text-center info_plus">
+            Você pode habilitar novos usuários a qualquer momento, <br>
+            basta clicar no link <strong>Usuários / Usuários Externos <i class="fa fa-users" aria-hidden="true"></i></strong>
+            no menu lateral do processo respectivo.
+          </p>
+        </div>
+      </div>
+      {% endif %}    
+    </div>
+  </div>
+</div>
+{% endblock conteudo %}
+
+{% block custom_js_final %}
+  {{ block.super }}
+  <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+  <script src="{% static 'js/prevent_multiple_submit.js' %}"></script>
+{% endblock %}

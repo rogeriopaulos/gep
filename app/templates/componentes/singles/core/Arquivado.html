@@ -1,0 +1,18 @@
+{% extends "componentes/shares/AvisoGeral.html" %}
+{% load static %}
+
+{% block conteudo %}
+<div class="conteiner conteudo">
+  <div class="container theme-showcase" role="main">
+    <div class="jumbotron page-header">
+      <img src="{% static 'imagens/favicons/logo-192x192.png' %}" alt="Logo">
+      <h2>PROCESSO ARQUIVADO</h2>
+      <hr />
+        <p>
+          Encontra-se inativa a criação ou edição de qualquer ato neste processo<br>
+          <span class="texto-contato">Caso necessite criar ou editar algum ato, por favor, entre em contato com os administradores</span>
+        </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

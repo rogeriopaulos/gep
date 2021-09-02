@@ -1,0 +1,29 @@
+{% extends "account/base.html" %}
+
+{% load static %}
+{% load templates_extras %}
+{% load bootstrap3 %}
+
+{% block custom_estilos %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{% static 'datatables.net-bs/css/dataTables.bootstrap.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/notify.css' %}">
+{% endblock %}
+
+{% block conteudo_painel %}
+<div class="container-fluid cadastro">
+  {% bootstrap_messages messages %}
+  <div class="title div-header">
+    <h2>Notificações</h2>
+  </div>
+  {% block conteudo_notificacoes %}{% endblock conteudo_notificacoes %}
+</div>
+{% endblock %}
+
+{% block custom_js_final %}
+  {{ block.super }}
+  <script type="text/javascript" src="{% static 'datatables.net/js/jquery.dataTables.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'datatables.net-bs/js/dataTables.bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'datatables.net/plugins/date-euro.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/hideAlert.js' %}"></script>
+{% endblock %}

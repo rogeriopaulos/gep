@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-6">
+    <strong><p>Última Localização:</strong> {% if item.statusadm.outros %}{{ item.statusadm.outros|upper }}{% else %}{{ item.statusadm.localizacao|upper }}{% endif %}</p>
+  </div>
+  <div class="col-md-6">
+    <strong><p>Situação:</strong> {{ item.statusadm.situacao }} <span class="pull-right"><a href="{% url 'adm:editar_status_adm' item.pk %}"><button type="button" class="btn btn-default btn-sm">Editar Status</button></a></span></p>
+  </div>
+</div>
+
+{% if item.descricao %}
+<div class="row">
+  <div class="col-md-12">
+    <strong><p>Observação:</strong> {{ item.descricao }}
+  </div>
+</div>
+{% endif %}
+
+<div class="row" style="margin-top: 5px;">
+  <div class="col-md-12">
+    <span class="pull-right" style="font-size: 10px">
+      <em>Inserido por <strong>{{ item.autor }}</strong></em>
+    </span>
+  </div>
+</div>

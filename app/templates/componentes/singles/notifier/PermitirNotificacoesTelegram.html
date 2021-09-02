@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load bootstrap3 %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block custom_estilos %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap_multiselect_master/css/bootstrap-multiselect.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/form_geral.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/notificacao.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/telegram_passos.css' %}">
+{% endblock %}
+
+{% block custom_js %}
+  {{ block.super }}
+  <script type="text/javascript" src="{% static 'bootstrap_multiselect_master/js/multiselect.js' %}"></script>
+{% endblock %}
+
+{% block conteudo %}
+<div class="container cadastro">
+  {% bootstrap_messages messages %}
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2" id="notificacao_content">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h3><i class="fa fa-telegram" aria-hidden="true"></i> Telegram: Permitir notificações</h3>
+          <hr>
+          <p><strong>Falta pouco!</strong></p>
+          <p>Seu usuário já foi pré-cadastrado para receber as notificações pelo Telegram.</p>
+          <p>Para concluir, clique em  <strong class="text-success">Permitir notificações</strong>.</p>
+          <p>Caso não tenha sido você quem solicitou a habilitação de seu usuário para receber as notificações via Telegram,
+          clique no botão <strong class="text-danger">Não permitir</strong>.</p>
+        </div>
+      </div>
+      <div class="row" id="notificacao_btns">
+        <div class="col-md-6 text-center">
+          <a href="./?allow=1" class="btn btn-success btn-sm dp-btnsalvar btn_form_notificar">Permitir notificações</a>
+        </div>
+        <div class="col-md-6 text-center">
+          <a href="./?allow=0" role="button" class="btn btn-danger btn-sm btn_form_notificar link_clean">Não permitir</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock conteudo %}
+
+{% block custom_js_final %}
+  {{ block.super }}
+  <script type="text/javascript" src="{% static 'js/notificacaoPost.js' %}"></script>
+{% endblock %}

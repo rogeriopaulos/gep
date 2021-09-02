@@ -1,0 +1,32 @@
+{% load static %}
+
+<div class="col-md-10 col-md-offset-1">
+  <div class="panel panel-default">
+    <div class="panel-heading link-lista">
+      <a href="{{resultado.url}}"><strong>{{ forloop.counter }}. {{ resultado.title }}</strong>{% if resultado.meta.get_titulo %}| {{ resultado.meta.get_titulo|upper }}{% endif %}</a>
+    </div>
+    <div class="panel-body">
+      <div class="col-md-12">
+        {% if resultado.description %}
+          <strong>Descrição:</strong><br />
+          <p>{{ resultado.description }}</p>
+          <hr class="hr-processo">
+          <br />
+        {% endif %}
+      </div>
+      <div class="col-md-4">
+        <span class="text-right"><strong>Difusão:</strong> {{ resultado.meta.get_difusao|default_if_none:"---------" }}<br/></span>
+      </div>
+      <div class="col-md-4">
+        <span class="text-left"><strong>Origem:</strong> {{ resultado.meta.get_origem|default_if_none:"---------" }}</span><br />
+      </div>
+      <div class="col-md-4">
+        <span class="text-left"><strong>Documento de origem:</strong> {{ resultado.meta.get_num_doc|default_if_none:"---------" }}</span><br />
+      </div>
+    </div>
+    <div class="panel-footer">
+      <img src="{% static "/imagens/inteligencia32x32.png"%}" style="margin-right: 10px"/>
+      <em>{{ resultado.meta.get_tipo_procedimento }}</em>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load bootstrap3 %}
+{% load crispy_forms_tags %}
+
+{% block custom_estilos %}
+  <link rel="stylesheet" type="text/css" href='{% static "css/form_geral.css" %}'>
+{% endblock %}
+
+{% block conteudo %}
+<div class="container-fluid cadastro">
+  {% bootstrap_messages %}
+    <h3 class="text-center">INCLUIR OFÍCIO(S) PARA OPERADORAS(S) / EMPRESA(S)</h3>
+    <form action="." method="post" class="form" enctype="multipart/form-data" id="ofempresasForm" data-prefix="{% if oficios_inter %}ofempresas{% else %}ofempresas_quebra{% endif %}">
+      <div class="col-md-8 col-md-offset-2 dp-colwhite">
+          {% csrf_token %}
+          {% crispy form form.helper %}
+          <table class="table">
+            {{ oficios.management_form }}
+            {% for link_form in oficios.forms %}
+              {% if forloop.first %}
+                <thead>
+                  <tr>
+                    {% for field in link_form.visible_fields %}
+                      <th>{{ field.label|capfirst }}</th>
+                    {% endfor %}
+                  </tr>
+                </thead>
+              {% endif %}
+              <tr class="{% cycle 'row1' 'row2' %} formset_row" >
+                {% for field in link_form.visible_fields %}
+                  <td>
+                    {% if forloop.first %}
+                      {% for hidden in link_form.hidden_fields%}
+                        {{ hidden }}
+                      {% endfor %}
+                    {% endif %}
+                    {{ field.errors.as_ul }}
+                    {{ field }}
+                  </td>
+                {% endfor %}
+              </tr>
+              {% endfor %}
+          </table>
+        </div>
+      <div class="col-md-2 col-md-offset-5 text-center" id="btnSaveFormset">
+        {% buttons %}
+          <button type="submit" class="btn btn-primary btn-block text-uppercase">Salvar</button>
+        {% endbuttons %}
+      </div>
+    </form>
+</div>
+{% endblock conteudo %}
+
+{% block custom_js_final %}
+  <script src="{% static 'formset/jquery.formset.js' %}"></script>
+  <script src="{% static 'js/ofOperadorasScripts.js' %}"></script>
+  <script src="{% static 'js/loadFormsetsOfEmpresas.js' %}"></script>
+  <script src="{% static 'js/prevent_multiple_submit.js' %}"></script>
+{% endblock custom_js_final %}

@@ -1,0 +1,23 @@
+.cadastro {
+  margin-top: 0px;
+}
+
+#form-register {
+  background-color: white;
+  padding: 15px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-top: 4px solid #5e5e5e;
+  -webkit-box-shadow: 7px 9px 10px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 7px 9px 10px -3px rgba(0, 0, 0, 0.75);
+  box-shadow: 7px 9px 10px -3px rgba(0, 0, 0, 0.75);
+}
+
+#btn-register {
+  background-color: #38707a;
+  font-weight: bolder;
+}
+
+#btn-register:hover {
+  background-color: #458894;
+}

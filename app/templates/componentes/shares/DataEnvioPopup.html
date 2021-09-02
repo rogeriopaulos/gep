@@ -1,0 +1,15 @@
+{% extends "componentes/shares/DadosPopup.html" %}
+
+{% load static %}
+
+{% block sub-titulo %}INSERIR DATA{% endblock sub-titulo %}
+
+{% block aviso_docsDnisp %}
+{% endblock %}
+
+{% block customPopupJs_final %}
+  <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+  <script src="{% static 'js/masksInputs.js' %}"></script>
+  <script src="{% static 'js/jquery-ui-1.12.1/jquery-ui.js' %}"></script>
+  <script src="{% static 'js/inputDatas.js' %}"></script>
+{% endblock customPopupJs_final %}

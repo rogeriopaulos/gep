@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% load bootstrap3 %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block custom_estilos %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap_multiselect_master/css/bootstrap-multiselect.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/form_geral.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/notificacao.css' %}">
+{% endblock %}
+
+{% block custom_js %}
+  {{ block.super }}
+  <script type="text/javascript" src="{% static 'bootstrap_multiselect_master/js/multiselect.js' %}"></script>
+{% endblock %}
+
+{% block conteudo %}
+<div class="container cadastro">
+  {% bootstrap_messages messages %}
+  <h3 class="text-center text-uppercase">NOTIFICAR</h3>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2" id="notificacao_content">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <dl class="dl-horizontal">
+            <dt>Título</dt>
+            <dd>{{ obj }}</dd>
+            <dt>Autor</dt>
+            <dd>{{ obj.autor.get_full_name|title }}</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <hr>
+          <p>Selecione o(s) usuário(s) que deseja notificar sobre o ato acima. <br>
+            Em seguida, aperte o botão <strong class="text-success">Enviar notificações</strong>.</p>
+          <p>Se não quiser notificar ninguém, <br>
+          clique no botão <strong class="text-danger">Não desejo notificar ninguém</strong>.</p>
+        </div>
+      </div>
+      <div class="row">
+        <form action="" method="post" class="form" enctype="multipart/form-data" id="idFormGeral">
+          <div class="bloco">
+            {% crispy form form.helper %}
+          </div>
+          <div class="row" id="notificacao_btns">
+            <div class="col-md-6 text-center">
+              <div class="form-group">
+                <button type="submit" class="btn btn-success btn-sm dp-btnsalvar btn_form_notificar">Enviar notificações</button>
+              </div>
+            </div>
+            <div class="col-md-6 text-center">
+              <div class="form-group">
+                <a href="{{ success_url }}" role="button" class="btn btn-danger btn-sm btn_form_notificar link_clean">Não desejo notificar ninguém</a>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <hr>
+          <p class="text-center info_plus">
+            Você pode notificar alguém a qualquer momento, <br>
+            basta clicar no botão <i class="glyphicon glyphicon-bell"></i> na aba do ato que deseja notificar.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock conteudo %}
+
+{% block custom_js_final %}
+  {{ block.super }}
+  <script type="text/javascript" src="{% static 'js/notificacaoAto.js' %}"></script>
+{% endblock %}
+

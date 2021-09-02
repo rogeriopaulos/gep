@@ -1,0 +1,39 @@
+argon2-cffi==20.1.0  # https://github.com/hynek/argon2_cffi
+beautifulsoup4==4.9.3 # https://code.launchpad.net/beautifulsoup/
+celery==4.4.7  # https://github.com/celery/celery
+# channels==2.2  # https://github.com/django/channels
+# channels-redis==3.0.1 # https://github.com/django/channels_redis
+easy-thumbnails==2.7.1 # https://github.com/SmileyChris/easy-thumbnails
+flower==0.9.7  # https://github.com/mher/flower
+jsonfield==3.1.0  # https://github.com/dmkoch/django-jsonfield/
+kombu==4.6.10  # https://github.com/celery/kombu
+Pillow==8.1.2  # https://github.com/python-pillow/Pillow
+progressbar2==3.53.1  # https://github.com/WoLpH/python-progressbar
+python-dateutil==2.6.0  # https://github.com/dateutil/dateutil
+python-slugify==4.0.1  # https://github.com/un33k/python-slugify
+pytz==2021.1  # https://github.com/stub42/pytz
+redis==3.5.3  # https://github.com/antirez/redis
+requests==2.25.1  # http://python-requests.org/
+xhtml2pdf==0.2.5  # http://github.com/xhtml2pdf/xhtml2pdf
+whitenoise==5.2.0  # https://github.com/evansd/whitenoise
+
+# Django
+# ------------------------------------------------------------------------------
+Django==2.2.19 # https://www.djangoproject.com/
+django-admin-honeypot==1.1.0  # https://github.com/dmpayton/django-admin-honeypot
+django-auditlog==0.4.7  # https://github.com/jjkester/django-auditlog
+django-axes==5.13.1  # https://github.com/jazzband/django-axes
+django-bootstrap3==14.2.0   # https://github.com/dyve/django-bootstrap3
+django-ckeditor==6.0.0 # https://github.com/django-ckeditor/django-ckeditor
+django-crispy-forms==1.11.1  # https://github.com/django-crispy-forms/django-crispy-forms
+django-environ==0.4.5  # https://github.com/joke2k/django-environ
+django-easy-pdf==0.1.1  # https://github.com/nigma/django-easy-pdf
+django-guardian==2.3.0  # https://github.com/django-guardian/django-guardian
+django-maintenance-mode==0.15.1  # https://github.com/fabiocaccamo/django-maintenance-mode
+django-model-utils==4.1.1 # https://github.com/jazzband/django-model-utils
+django-multiselectfield==0.1.12  # https://github.com/goinnn/django-multiselectfield
+django-notifications-hq==1.6.0  # https://github.com/django-notifications/django-notifications
+django-redis==4.12.1  # https://github.com/jazzband/django-redis
+django-session-security==2.6.6  # https://github.com/yourlabs/django-session-security
+django-watson==1.5.5  # http://github.com/etianen/django-watson
+django-ajax-datatable==4.1.7 # https://github.com/morlandi/django-ajax-datatable

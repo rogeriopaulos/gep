@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% load bootstrap3 %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block custom_estilos %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap_multiselect_master/css/bootstrap-multiselect.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/form_geral.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/notificacao.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/telegram_passos.css' %}">
+{% endblock %}
+
+{% block custom_js %}
+  {{ block.super }}
+  <script type="text/javascript" src="{% static 'bootstrap_multiselect_master/js/multiselect.js' %}"></script>
+{% endblock %}
+
+{% block conteudo %}
+<div class="container cadastro">
+  {% bootstrap_messages messages %}
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2" id="notificacao_content">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h3><i class="fa fa-telegram" aria-hidden="true"></i> Telegram: Passo a passo</h3>
+          <hr>
+          <p>Para receber notificações do GEP via telegram, siga os seguintes passos:
+              <ol>
+                  <li class="telegram-steps">
+                    Acesse o aplicativo do Telegram em seu smartphone ou via
+                    <a target='_blank' href="https://web.telegram.org/#/im?p=@{{bot.name}}">web</a>, e, em seguida,
+                    procure pelo bot <strong>{{ api.name }} (@{{ bot.name }})</strong>, conforme mostrado no print do perfil abaixo: <br>
+                    <img src="{% static 'imagens/telegram_profile_bot.png' %}" alt="Perfil do telegram"
+                      class="img-steps img-rounded">
+                  </li>
+                  <li class="telegram-steps">
+                    No campo de mensagem, envie seu nome de usuário - <em>{{ user }}</em> -
+                    para <strong>{{ api.name }}</strong>;
+                  </li>
+                  <li class="telegram-steps">
+                    Você deverá receber uma mensagem conforme mostrada na figura abaixo: <br>
+                    <img src="{% static 'imagens/telegram_msg_user_sent.png' %}" alt="Cadastro do telegram"
+                      class="img-steps img-rounded">
+                  </li>
+                  <li class="telegram-steps">
+                    De volta ao GEP, vá para a seção de <a href="{% url 'account:notificacoes' %}" target="_blank"
+                      rel="noopener noreferrer">Notificações</a> e localize a mensagem enviada pelo bot; <br>
+                    <small><em>Ps: Provavelmente, será a mensagem mais recente, localizada no topo da listagem.</em></small>
+                  </li>
+                  <li class="telegram-steps">Acesse o link e você deve ser direcionado para a página de permissão das notificações;</li>
+                  <li class="telegram-steps">
+                    Na página de permissão das notificações,
+                    aperte o botão <strong class="text-success">Permitir notificações</strong>;
+                  </li>
+                  <li class="telegram-steps">
+                      <strong>Pronto!</strong> Nesse momento, no Telegram, você deverá receber uma mensagem de confirmação;
+                      <ul>
+                        <li>Caso não receba a confirmação, volte na seção de Notificações do GEP;</li>
+                        <li>Clique em <strong class="text-danger">Desativar Telegram</strong>;</li>
+                        <li>Repita o procedimento acima indicado;</li>
+                      </ul>
+                  </li>
+              </ol>
+          </p>
+          <p>
+            <strong>Importante!</strong> Caso não tenha sido você quem solicitou a habilitação de seu usuário para o <em>{{ api.name }}</em>,
+            na seção de permissão das notificações (Passo 5) clique em <strong class="text-danger">Não permitir</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock conteudo %}
+
+{% block custom_js_final %}
+  {{ block.super }}
+  <script type="text/javascript" src="{% static 'js/notificacaoPost.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,77 @@
+h3 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+h4 {
+  font-size: 22px;
+  font-weight: 400;
+}
+
+h5 {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+#cke_id_conteudo,
+.django-ckeditor-widget,
+iframe {
+  width: 100%;
+}
+
+.table-title {
+  margin-bottom: 20px;
+}
+
+.dp-colwhite {
+  margin-bottom: 20px;
+}
+
+tr>td:last-of-type {
+  width: 1%;
+}
+
+.remove-form-row {
+  margin-top: 4px;
+}
+
+#id_tags {
+  color: #5f5f5fc9;
+}
+
+div.form-group {
+  margin-bottom: 24px;
+}
+
+div#div_id_publicar>label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+span#hint_id_publicar {
+  color: #5f5f5fc9;
+  font-size: small;
+  font-weight: bold;
+  margin-top: 4px;
+  text-align: left;
+  width: 450px;
+}
+
+div#id_relatorios_row {
+  background-color: #406c75;
+  color: white;
+}
+
+ul.relatorio_infos {
+  font-size: small;
+  font-weight: lighter;
+  margin-top: -8px;
+}
+
+table#table-relatorios {
+  margin-top: 32px;
+}
+
+#btn_publish {
+  font-weight: bold;
+}

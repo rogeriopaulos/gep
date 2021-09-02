@@ -1,0 +1,25 @@
+<!-- Modal Anulação -->
+<div class="modal fade" id="anularAtoModal" tabindex="-1" role="dialog" aria-labelledby="anularAtoModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title" id="anularAtoModalLabel">Anular Ato</h4>
+      </div>
+      <form action="." method="post" class="form-modal" enctype="multipart/form-data" data-baseurl="{{ url }}">
+        {% csrf_token %}
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="message-text" class="control-label">Motivo da anulação:</label>
+            <textarea name="motivo_anulacao" class="form-control" id="id_motivo_anulacao" required></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary" id="btnAnular">Anular</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Fim Modal Anulação -->

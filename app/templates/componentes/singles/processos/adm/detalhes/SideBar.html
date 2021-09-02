@@ -1,0 +1,90 @@
+<aside>
+  <div class="col-md-2 side-detalhes">
+    <!-- Sidebar -->
+    <nav class="navbar fixed-left navbar-default sidebar" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse collapse navbar-default" id="bs-sidebar-navbar-collapse-1">
+        <ul class="nav navbar-nav" >
+          {% if is_coordenador %}
+          <li>
+            <a href="{{ processo_adm.get_url_adddespacho }}">
+              Despacho
+              <span class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span>
+            </a>
+          </li>
+          {% endif %}
+          <li>
+            <a href="{{ processo_adm.get_url_adddocumento }}">
+              Documentos Gerais
+              <i class="fa fa-file-text-o fa-lg fa-pull-right" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a href="{{ processo_adm.get_url_addofinterno }}">
+              Expedir Ofício
+              <i class="fa fa-file-text-o fa-lg fa-pull-right" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a href="{{ processo_adm.get_url_addofexterno }}">
+              Ofício Recebido
+              <i class="fa fa-file-text-o fa-lg fa-pull-right" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a href="{{ processo_adm.get_url_addofempresas }}">
+              Ofícios para Empresas
+              <i class="fa fa-file-text-o fa-lg fa-pull-right" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a href="{{ processo_adm.get_url_addstatus }}">
+              Status
+              <span class="pull-right hidden-xs showopacity glyphicon glyphicon-transfer"></span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ processo_adm.get_url_addmidia }}">
+              Gravação de Mídia
+              <span class="pull-right hidden-xs showopacity glyphicon glyphicon-cd"></span>
+            </a>
+          </li>
+          {% if request.direcao and processo_adm.orgao_processo == user.profile.orgao_link %}
+            <li>
+              <a href="{{ processo_adm.get_url_selecionausers }}"
+                data-toggle="tooltip" data-placement="top"
+                title="Habilitar usuários da {{ user.profile.orgao_link.sigla|default:'unidade' }} neste processo">              
+                Usuários Internos
+                <i class="pull-right fa fa-users" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="{{ processo_adm.get_url_add_external_users }}"
+                data-toggle="tooltip" data-placement="top"
+                title="Habilitar usuários de outro órgão neste processo">              
+                Usuários Externos
+                <i class="pull-right fa fa-users" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="{{ processo_adm.get_url_defineperm }}"
+                data-toggle="tooltip" data-placement="bottom"
+                title="Definir as permissões dos usuários habilitados neste processo">              
+                Permissões
+                <span class="pull-right hidden-xs showopacity glyphicon glyphicon-wrench"></span>
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+    <!-- Fim - Sidebar -->
+  </div>
+</aside>

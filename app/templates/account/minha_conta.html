@@ -1,0 +1,96 @@
+{% extends "account/base.html" %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+{% load bootstrap3 %}
+
+{% block custom_estilos %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href={% static "js/jquery-ui-1.12.1/jquery-ui.css" %}>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/minha_conta.css' %}">
+{% endblock %}
+
+{% block conteudo_painel %}
+<div class="container-fluid cadastro">
+  {% bootstrap_messages messages %}
+  <div class="title">
+    <h2>Minha conta</h2>
+  </div>
+  <div class="row dp-box_relatorio box_1">
+    <div class="col-md-12">
+      <div class="col-md-8 col-md-offset-2 box-content">
+        <div class="col-md-4">
+          <h4>Dados Gerais</h4>
+          <small>
+            Corresponde aos dados informados no momento do cadastro. <br>
+            Para alterar, solicite diretamente à administração da unidade.
+          </small>
+        </div>
+        <div class="col-md-8 border-left">
+          <dl class="dl-horizontal">
+            <dt>Nome:</dt>
+            <dd>{{ user.get_full_name|upper }}</dd>
+            <dt>E-mail:</dt>
+            <dd>{{ user.email }}</dd>
+            <dt>Órgão de Lotação:</dt>
+            <dd>{{ user.profile.orgao_link.orgao }}</dd>
+            <dt>Cargo:</dt>
+            <dd>{{ user.profile.cargo_link.cargo }}</dd>
+            <dt>Matrícula:</dt>
+            <dd>{{ user.profile.matricula }}</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="col-md-8 col-md-offset-2 box-content">
+        <div class="col-md-4 border-right">
+          <h4>Grupos</h4>
+          <small>
+            Informa o(s) grupo(s) que você está inserido(a). <br>
+            O/A usuário(a) somente poderá acessar <strong>processos</strong> e/ou criar e editar <strong>atos</strong> no(s)
+            módulo(s) correspondente(s) ao(s) grupo(s) que participa. <br>
+            Caso necessite participar de um grupo não listado ao lado, entre em contato com a administração da unidade.
+          </small>
+        </div>
+        <div class="col-md-8">
+          <div class="row list-groups">
+          {% for group in user.groups.all %}
+            <a href="#" class="btn btn-default btn-sm disabled" role="button">{{ group.name|upper }}</a>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 col-md-offset-2 box-content">
+        <div class="col-md-4">
+          <h4>Alterar Senha</h4>
+          {% if user.profile.alterar_senha %}
+          <small>
+            <strong>IMPORTANTE:</strong> Para continuar acessar normalmente o GEP,
+            altere a senha temporária fornecida por uma de sua escolha. <br>
+            Caso não tenha recebido ou solicitado uma senha temporária, por favor, informe à administração da unidade.
+          </small>
+          {% endif %}
+        </div>
+        <div class="col-md-8 border-left">
+          <form action="#" method="post" class="form">
+            {% csrf_token %}
+            {% bootstrap_form form layout='inline' %}
+            <div class="col-md-4 col-md-offset-4 text-center">
+              {% buttons %}
+              <button type="submit" class="btn btn-primary btn-sm btn-block text-uppercase">Alterar Senha</button>
+              {% endbuttons %}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock conteudo_painel %}
+
+{% block custom_js_final %}
+  <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+  <script src="{% static 'js/masksInputs.js' %}"></script>
+  <script src="{% static 'js/prevent_multiple_submit.js' %}"></script>
+  <script src="{% static 'js/jquery-ui-1.12.1/jquery-ui.js' %}"></script>
+  <script src="{% static 'js/inputDatas.js' %}"></script>
+{% endblock %}

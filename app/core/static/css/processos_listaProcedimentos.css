@@ -1,0 +1,79 @@
+a.add-processo-btn:link, a.add-processo-btn:visited {
+  color: white !important;
+}
+
+a.plus, a.minus {
+  border: none !important;
+}
+
+.dp-tabelas table {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px 10px;
+  background-color: white;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 10px;
+}
+
+#datatable_processos > thead > tr > th {
+  text-transform: uppercase;
+}
+#datatable_processos > tbody > tr > td   {
+  vertical-align: middle;
+}
+
+.dp-tabelas thead {
+  color: #777;
+}
+
+.dp-arquivar {
+  color: #951f1f !important;
+  font-weight: bold;
+}
+
+.dp-processo-externo {
+  color: #337ab7;
+  font-weight: bold;
+}
+
+.plus, .plus:link, .plus:visited, .plus:active {
+  color: #08cc54;
+}
+
+.minus, .minus:link, .minus:visited, .minus:active {
+  color: #b91818;
+}
+
+.display-none {
+  display: none;
+}
+
+div#tableProcessosInter_wrapper {
+  margin-top: 10px;
+}
+
+td.details-control {
+  background: url('./imagens_css/plus-circle.png') no-repeat center center;
+  cursor: pointer;
+}
+a.show-detail {
+  background: url('./imagens_css/plus-circle.png') no-repeat center center;
+  cursor: pointer;
+}
+tr.shown td.details-control {
+  background: url('./imagens_css/minus-circle.png') no-repeat center center;
+}
+tr.shown td.show-detail {
+  background: url('./imagens_css/minus-circle.png') no-repeat center center;
+}
+
+.card {
+  margin-bottom: 10px 
+}
+
+.add-processo-btn {
+  font-weight: bold;
+}
+
+#datatable_processos_filter {
+  margin-top: -30px;
+}

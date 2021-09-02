@@ -1,0 +1,17 @@
+# General
+# ------------------------------------------------------------------------------
+DEBUG=True
+USE_DOCKER=yes
+DJANGO_SETTINGS_MODULE=settings.local
+ADMIN_URL_PATH=admin
+MAINTENANCE_ADMIN_URL=adminlogin
+
+# Redis
+# ------------------------------------------------------------------------------
+REDIS_URL=redis://redis:6379/0
+CELERY_BROKER_URL=$REDIS_URL
+
+# Flower
+# ------------------------------------------------------------------------------
+CELERY_FLOWER_USER=debug
+CELERY_FLOWER_PASSWORD=debug

@@ -1,0 +1,18 @@
+{% extends "componentes/shares/AvisoGeral.html" %}
+{% load static %}
+
+{% block conteudo %}
+<div class="conteiner conteudo">
+  <div class="container theme-showcase" role="main">
+    <div class="jumbotron page-header">
+      <img src="{% static 'imagens/favicons/logo-192x192.png' %}" alt="Logo">
+      <h2>ATENÇÃO!</h2>
+      <hr />
+        <p>
+          Você não tem permissão para acessar este conteúdo<br>
+          <span class="texto-contato">Caso necessite de acesso, por favor, entre em contato com os administradores</span>
+        </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

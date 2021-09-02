@@ -1,0 +1,85 @@
+a.unred-link {
+    color: darkcyan;
+    text-decoration: inherit;
+}
+
+a.change_notifications_table:link, a.change_notifications_table:visited {
+    color: #949292;
+    text-decoration: none;
+}
+
+a.change_notifications_table:focus, a.change_notifications_table:hover {
+    color: #5e5e5e;
+    text-decoration: none;
+}
+
+i.fa.fa-envelope-open {
+    margin-left: 30%;
+}
+
+.read {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.btn-telegram {
+    color: #24a3f8;
+}
+
+.btn-telegram:hover {
+    color: #1b6da3;
+}
+
+.datatb-notify {
+    border-color: darkred;
+}
+
+.glyphicon-eye-open {
+    font-size: 1.6rem;
+    margin-left: 10px;
+}
+
+.glyphicon-remove {
+    color: red;
+    margin-left: 20px;
+}
+
+.glyphicon-ok {
+    color: green;
+    margin-left: 20px;
+}
+
+.alert {
+    margin-bottom: 0 !important;
+    margin-top: 8px !important;
+}
+
+.change_notifications_table {
+    font-size: 80%;
+}
+
+#tr-notification {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#icon-unread{
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#receive_notifications {
+    margin-bottom: 16px;
+}
+
+#all_read_btn {
+    margin-top: 8px;
+}
+
+#all_read_btn>i {
+    margin-left: 0;
+    margin-right: 8px;
+}

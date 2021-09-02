@@ -1,0 +1,42 @@
+.dp-box_relatorio {
+    font-family: 'Roboto', sans-serif;
+}
+
+.title {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 2px solid black;
+    border-top: 5px double black;
+    padding: 5px;
+}
+
+.title > h2 {
+    margin-top: 0;
+    margin-right: 5px;
+}
+
+.tab-pane {
+    padding: 8px;
+}
+
+.nav-title {
+    font-weight: bold;
+}
+
+.nav-tabs {
+    border-bottom: none;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    border: 0;
+    border-bottom: 3px solid #34737f;
+}
+
+.tab-subtitle {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+a.no-decoration {
+    text-decoration: none;
+}

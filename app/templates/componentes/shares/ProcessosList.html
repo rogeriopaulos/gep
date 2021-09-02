@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block custom_estilos %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/processos_listaProcedimentos.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'ajax_datatable/css/style.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'datatables.net-bs/css/dataTables.bootstrap.min.css' %}" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+{% endblock %}
+
+{% block conteudo %}
+<div class="container-fluid cadastro">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="row card">
+      <div class="col-md-1">
+        <a href="{{ url_cadastrar }}" class="btn btn-success btn-sm add-processo-btn"
+          role="button">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> CADASTRAR PROCESSO
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 table-responsive dp-tabelas">
+        <table class="table table-striped" id="datatable_processos"
+          data-url="{{ url_processos_ajax }}">
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block custom_js_final %}
+  {{ block.super }}
+  <script type="text/javascript" src="{% static 'ajax_datatable/js/utils.js' %}"></script>
+  <script type="text/javascript" src="{% static 'datatables.net/js/jquery.dataTables.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'datatables.net-bs/js/dataTables.bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/dataTablesPTBR.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/loadDataTablesProcessos.js' %}"></script>
+{% endblock %}

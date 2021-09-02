@@ -1,0 +1,32 @@
+small {
+    color: gray;
+}
+
+.box-content {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.dl-horizontal {
+    margin-top: 16px;
+}
+
+.border-left {
+    border-left: 1px solid #cecece;
+}
+
+.border-right {
+    border-right: 1px solid #cecece;
+}
+
+.list-groups {
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: stretch;
+}
+
+.list-groups > a {
+    margin-right: 4px;
+    margin-bottom: 4px;
+}

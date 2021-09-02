@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% load bootstrap3 %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block custom_estilos %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href={% static "js/jquery-ui-1.12.1/jquery-ui.css" %}>
+  <link rel="stylesheet" type="text/css" href={% static "css/form_geral.css" %}>
+  {% if inter_quebra %}
+    <link rel="stylesheet" type="text/css" href={% static "css/form_inter_quebra.css" %}>
+  {% endif %}
+  {% if quebra_inter %}
+    <link rel="stylesheet" type="text/css" href={% static "css/form_quebra_inter.css" %}>
+  {% endif %}
+  {% if processos_css %}
+    <link rel="stylesheet" type="text/css" href={% static "css/processos_addDocumento.css" %}>
+  {% endif %}
+  {% if vigia_form %}
+    <link rel="stylesheet" type="text/css" href={% static "css/add_vigia_inter.css" %}>
+  {% endif %}
+{% endblock %}
+
+{% block conteudo %}
+<div class="container-fluid cadastro">
+  {% bootstrap_messages messages %}
+  <h4 class="text-center text-uppercase"><strong>{% block sub-titulo %}{{  subtitle }}{% endblock sub-titulo %}</strong></h4>
+  <form action="." method="post" class="form" enctype="multipart/form-data" id="idFormGeral">
+    <div class="bloco">
+      {% crispy form form.helper %}
+    </div>
+    {% if investigadolab_form_create %}
+    <div class="col-md-8 col-md-offset-2" id="divInvestigadoLab">
+      <div class="row text-center">
+        <button type="submit" class="btn btn-primary text-uppercase">Salvar</button>
+        <button type="submit" class="btn btn-success text-uppercase" id="btnSaveAdd" data-url="{{ save_add_url }}">
+          Salvar & Adicionar Novo Investigado
+        </button>
+      </div>
+    </div>
+    {% else %}
+    <div class="col-md-2 col-md-offset-5">
+      <div class="text-center">
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block text-uppercase dp-btnsalvar">
+              <strong>Salvar</strong>
+            </button>
+          </div>
+      </div>
+    </div>
+    {% endif %}
+  </form>
+  {% if investigadolab_form_create or investigado_lab_form %}
+    {% include 'componentes/singles/InvestigadosAdicionados.html' %}
+  {% endif %}
+</div>
+{% endblock conteudo %}
+
+{% block custom_js_final %}
+  <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+  <script src="{% static 'js/masksInputs.js' %}"></script>
+  <script src="{% static 'js/prevent_multiple_submit.js' %}"></script>
+  <script src="{% static 'js/jquery-ui-1.12.1/jquery-ui.js' %}"></script>
+  <script src="{% static 'js/inputDatas.js' %}"></script>
+  {% if outros_disabled %}
+    <script src="{% static 'js/outrosDisabled.js' %}"></script>
+  {% endif %}
+  {% if vigia_form %}
+    <script src="{% static 'js/vigiaDisabled.js' %}"></script>
+  {% endif %}
+  {% if investigado_lab_form or investigadolab_form_create %}
+    <script src="{% static 'js/disabledInput.js' %}"></script>
+  {% endif %}
+  {% if investigadolab_form_create %}
+    <script src="{% static 'js/saveAddInvestigadosLab.js' %}"></script>
+  {% endif %}
+{% endblock %}

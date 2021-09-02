@@ -1,0 +1,60 @@
+/* General
+--------------------------------------------------------------------------*/
+
+h2 {
+    font-weight: 500;
+    color: #292929;
+}
+
+.main_content {
+    margin-bottom: 24px;
+}
+
+.page_header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.link_clean:hover {
+    font-weight: 400;
+    color: #000;
+}
+
+/* Post
+--------------------------------------------------------------------------*/
+
+header {
+    margin-top: 58px
+}
+
+main {
+    margin-top: 24px;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+main p, img {
+    margin-bottom: 24px;
+}
+
+main p:first-child::first-letter {
+    color: #5e5e5e;
+    font-size: 32px;
+    padding: 0 .3rem;
+    margin: 0 .3rem 0 0;
+    border: 2px solid;
+    border-radius: 8px;
+    /* float: left;
+    line-height: 1.5; */
+}
+
+.dotted_divider {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 15px;
+    color: #606060;
+}
+
+/* .tag>span {
+    margin-right: 8px;
+} */

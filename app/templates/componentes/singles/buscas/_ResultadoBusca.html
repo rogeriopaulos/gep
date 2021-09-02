@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load watson %}
+{% load pagination %}
+{% load templates_extras %}
+
+{% block conteudo %}
+<div class="container-fluid cadastro">
+
+  <div class="col-md-4 col-md-offset-1">
+    <h3>Resultado(s):</h3>
+  </div>
+
+  <div class="row" id="pesquisa">
+
+    <div class="col-md-10 col-md-offset-1">
+    <hr style="border-top: 1px solid black" />
+
+      <div class="row" id="result-pesquisa">
+      {% for resultado in resultados %}
+        {% if resultado.meta.get_tipo_procedimento == 'Administrativo' %}
+          {% include "componentes/singles/buscas/BuscaAdministrativo.html" %}
+        {% elif 'Ato' in resultado.meta.get_tipo_procedimento or 'Mídia' in resultado.meta.get_tipo_procedimento or resultado.meta.get_tipo_procedimento == 'Administrativo - Ofício Empresa(s)' %}
+          {% include "componentes/singles/buscas/BuscaAto.html" %}
+        {% elif 'Ofício Expedido' in resultado.meta.get_tipo_procedimento or 'Ofício Recebido' in resultado.meta.get_tipo_procedimento %}
+          {% include "componentes/singles/buscas/BuscaOfInterno.html" %}
+        {% elif resultado.meta.get_tipo_procedimento == 'Administrativo - Documentos Gerais' %}
+          {% include "componentes/singles/buscas/BuscaDocumento.html" %}
+        {% endif %}
+      {% empty %}
+        <h4><p class="text-center">Sem resultados para a pesquisa realizada</p></h4>
+      {% endfor %}
+      </div>
+
+      {% if is_paginated %}
+        {% pagination request paginator page_obj %}
+      {% endif %}
+
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}
+
+{% block custom_js_final %}
+  <script type="text/javascript">
+    $(function(){
+      var resultado = $('#result-pesquisa');
+      var resultQuantidade = resultado[0].childElementCount;
+
+      if(resultQuantidade == 0) {
+        resultado.append("<h4><p class='text-center'>Sem resultados para a pesquisa realizada</p></h4>");
+      };
+    })
+  </script>
+{% endblock %}

@@ -1,0 +1,65 @@
+version: "3"
+
+volumes:
+  local_postgres_data: {}
+  local_postgres_data_backups: {}
+
+services:
+  django: &django
+    build:
+      context: .
+      dockerfile: ./compose/local/django/Dockerfile
+    image: gep_local_django
+    depends_on:
+      - postgres
+    volumes:
+      - ./app:/app
+    env_file:
+      - ./.envs/.local/.django
+      - ./.envs/.local/.postgres
+    ports:
+      - "8000:8000"
+    command: /start.sh
+    container_name: geplocal-django
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./compose/production/postgres/Dockerfile
+    image: gep_local_postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - local_postgres_data:/var/lib/postgresql/data
+      - local_postgres_data_backups:/backups
+    env_file:
+      - ./.envs/.local/.postgres
+    container_name: gep_local-psql
+
+  redis:
+    image: redis:5
+    container_name: gep_local_redis
+
+  celeryworker:
+    <<: *django
+    image: gep_local_celeryworker
+    depends_on:
+      - redis
+      - postgres
+    container_name: gep_local_celery
+    ports: []
+    command: /start-celeryworker.sh
+
+  flower:
+    <<: *django
+    image: gep_local_flower
+    ports:
+      - "5555:5555"
+    command: /start-flower.sh
+    container_name: geplocal-flower
+
+  mailhog:
+    image: mailhog/mailhog
+    ports: 
+      - 1025:1025
+      - 8025:8025

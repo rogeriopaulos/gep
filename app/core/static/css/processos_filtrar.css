@@ -1,0 +1,53 @@
+.dp-colwhite {
+    background: #f5f5f5;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: solid 1px #ddd;
+    border-radius: 10px;
+    height: auto;
+}
+
+button.btn.btn-primary.btn-block.text-uppercase {
+    margin-top: 1rem;
+}
+
+input[type=checkbox] {
+    /* Double-sized Checkboxes */
+    -ms-transform: scale(2);
+    /* IE */
+    -moz-transform: scale(2);
+    /* FF */
+    -webkit-transform: scale(2);
+    /* Safari and Chrome */
+    -o-transform: scale(2);
+    /* Opera */
+    padding: 10px;
+}
+
+.table th, .table td {
+    text-align: center;
+}
+
+.table>tbody>tr>td {
+    vertical-align: middle;
+}
+
+.dp-btnsalvar {
+    margin-top: 16px;
+}
+
+.warning {
+    border: 1px solid #dcdada;
+    padding: 16px;
+    border-radius: 10px;
+    line-height: 24px;
+}
+
+.no-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    line-height: 24px;
+}

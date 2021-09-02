@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load bootstrap3 %}
+
+{% block custom_estilos %}
+  <link rel="stylesheet" type="text/css" href={% static "css/processos_docs.css" %}>
+{% endblock %}
+
+{% block custom_js %}
+  {{ block.super }}
+  {% include path_to_include %}
+{% endblock  %}
+
+{% block conteudo %}
+<div class="container-fluid cadastro">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h3 class="text-center">{{ subtitle }}</h3>
+      <form action="." method="post" class="form" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+          {{ form.conteudo }}
+        </div>
+        <div class="col-md-4 col-md-offset-5">
+          {% buttons %}
+          <button type="submit" class="btn btn-primary center-block btn-oficios">Salvar</button>
+          {% endbuttons %}
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block custom_js_final %}
+  <!-- Arquivos Ckeditor -->
+  <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+  <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+  <script type="text/javascript" src="{% static 'js/prevent_multiple_submit.js' %}"></script>
+{% endblock %}

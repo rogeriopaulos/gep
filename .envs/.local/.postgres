@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_DB=esisp
+POSTGRES_USER=esisp
+POSTGRES_PASSWORD=debug
+POSTGRES_PORT=5432

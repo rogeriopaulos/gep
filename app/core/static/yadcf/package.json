@@ -1,0 +1,93 @@
+{
+  "_args": [
+    [
+      "yadcf@^0.9.3",
+      "/home/rogeriopaulos/Projetos/whatscrawler/app"
+    ]
+  ],
+  "_from": "yadcf@>=0.9.3 <0.10.0",
+  "_hasShrinkwrap": false,
+  "_id": "yadcf@0.9.3",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/yadcf",
+  "_nodeVersion": "8.9.4",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/yadcf_0.9.3_1527073413609_0.0620156538519101"
+  },
+  "_npmUser": {
+    "email": "vedmack@gmail.com",
+    "name": "vedmack"
+  },
+  "_npmVersion": "5.6.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "yadcf",
+    "raw": "yadcf@^0.9.3",
+    "rawSpec": "^0.9.3",
+    "scope": null,
+    "spec": ">=0.9.3 <0.10.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/yadcf/-/yadcf-0.9.3.tgz",
+  "_shasum": "1656e166e2a22371af153a7504dcb4ac8fc53653",
+  "_shrinkwrap": null,
+  "_spec": "yadcf@^0.9.3",
+  "_where": "/home/rogeriopaulos/Projetos/whatscrawler/app",
+  "author": {
+    "name": "Daniel Reznick",
+    "url": "https://github.com/vedmack"
+  },
+  "bugs": {
+    "url": "https://github.com/vedmack/yadcf/issues"
+  },
+  "dependencies": {
+    "jquery": ">=1.7.0"
+  },
+  "description": "This jQuery plug-in allows the user to easily add filter components to table columns, the plug-in works on top of the DataTables jQuery plug-in.",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "fileCount": 5,
+    "integrity": "sha512-/9lFaS1D7r8s5zLrsz/2CNhU5dbnbFwa+cQouEd3G1l7CqD8r/Sg8cB4eqy4dr0VKQ75Meh0Y1Vx9QcS9N+1JQ==",
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbBUqGCRA9TVsSAnZWagAAsTQP/R4XuGr+G4+PUBtbX4H8\nXVFgucwa3jkss8NWmn0y8bobmLzQHFFR9W8gCrj7rjYUrwc1UjLIt6oFtxoJ\nq/a/M50s+Z406YQcrjWvksxtwlr3gpcYcEcg/7wXZrWq/eK+D4gWYhjYGikg\nBZinLeaKutazndGhiOHOvDQI28iYP8wknuIYrqOCUm1bmsQ3LJE+fJVqKZuV\nHIvbk0uLQwZ38oGPEoPcK/Nz33ZB464CpYoWKqirQNRHlMlIQL5JuschNLum\nIhxLgNigl4A0M3ASAzQOznd0jDvfNgSKWOoQ1j8ToBVEzuG/EtzbI/36Hcvo\nMC62XjrIVsvIPxfa/NhUUVT3pFW/b4nv/Gx2Bi/3+Za2UA2S9i/kWGBTXlUg\ncWWhRbJ24th7CqjoF32oNWG+g2VWH3bvXtExagRN/jpA18o3kuSOvNX6KmPF\nqu/Ir626gZ0ex+4YnydpQHyx0bM93JQN3mQG/blL1lBtOs3weJPgAYRGKWV4\n4Pf9wiyGGQARhXzlsbceTPig0fGpAtgji4cynhTabF+DsCqlMjtK3/YAEVhv\nuFEqoiLgI0Rr/oytSPm7bHLfm/FXUtE0fULfSMedXKtXOtZBljz+hZBm0pvC\nZSsR6b24HCM5SkWg2dq4gD2lB7ZngyCq7JKrxma4lki0Pv7T8l+mWMJcXMoP\niIYT\r\n=uPBI\r\n-----END PGP SIGNATURE-----\r\n",
+    "shasum": "1656e166e2a22371af153a7504dcb4ac8fc53653",
+    "tarball": "https://registry.npmjs.org/yadcf/-/yadcf-0.9.3.tgz",
+    "unpackedSize": 235107
+  },
+  "files": [
+    "jquery.dataTables.yadcf.css",
+    "jquery.dataTables.yadcf.js"
+  ],
+  "gitHead": "552d1e5906eb84af13c767826eda3303083229dc",
+  "homepage": "http://yadcf-showcase.appspot.com/",
+  "keywords": [
+    "column",
+    "datatables",
+    "filter",
+    "jQuery",
+    "jquery-plugin",
+    "plugin"
+  ],
+  "license": "MIT",
+  "main": "jquery.dataTables.yadcf.js",
+  "maintainers": [
+    {
+      "name": "vedmack",
+      "email": "vedmack@gmail.com"
+    }
+  ],
+  "name": "yadcf",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vedmack/yadcf.git"
+  },
+  "title": "Yet Another DataTables Column Filter (yadcf)",
+  "version": "0.9.3"
+}

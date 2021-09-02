@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-md-6">
+    <p><strong>Data de inserção:</strong> <br>
+    {{ item.criacao|date:'d/m/Y à\s H:i' }}</p>
+  </div>
+  <div class="col-md-6">
+    <p><strong>Inserido por:</strong> <em>{{ item.autor }}</em></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <p><strong>Descrição:</strong> <br>
+    {{ item.descricao|default:'--------' }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 table-responsive tabelas">
+    <table class="table table-striped table-bordered" style="font-size: 12px">
+      <thead>
+        <tr>
+          <th class="text-center">Nome do Documento</th>
+          <th class="text-center">Arquivo</th>
+          <th class="text-center">Modificar</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td class="text-center">{{ item.documentosgeraisadm.nome_doc }}</td>
+            <td class="text-center">
+              {% if item.documentosgeraisadm.documento %}
+              <a href="{{ item.documentosgeraisadm.documento.url }}" target="_blank">Download</a>
+              {% else %}
+              ---------
+              {% endif %}
+            </td>
+            <td class="text-center">
+              <a href="{% url 'adm:editar_documento_adm' item.documentosgeraisadm.pk %}">
+                <button type="button" class="btn btn-default btn-sm">Modificar Ofício</button>
+              </a>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

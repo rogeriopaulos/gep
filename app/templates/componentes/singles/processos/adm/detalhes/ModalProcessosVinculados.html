@@ -1,0 +1,35 @@
+{% load templates_extras %}
+
+<!-- Modal Processos Vinculados (lista) -->
+<div class="modal fade" id="processosVinculados" tabindex="-1" role="dialog" aria-labelledby="processosVinculadosLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="processosVinculadosLabel">Processos Vinculados</h4>
+      </div>
+        <div class="modal-body">
+          <table class="table table-condensed">
+            <thead>
+              <tr>
+                <th>Processo</th>
+                <th class="text-center">Motivo</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for processo in processo_adm.get_processos_vinculados %}
+              <tr>
+                <td><a href="{{ processo.get_kwarg_url|get_url }}" target="_blank">{{ processo.numero_processo }}</a></td>
+                <td class="text-center proc-tipo">{{ processo_adm.pk|get_motivo:processo.pk }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Fim Modal Processos Vinculados (lista) -->

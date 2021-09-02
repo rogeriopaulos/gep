@@ -1,0 +1,28 @@
+.label-conteudo {
+  display: none;
+}
+#id-conteudo {
+  align-content: center;
+}
+#printable {
+  page-break-after: always;
+  }
+
+.WordSection1 {
+    padding: 1cm 1cm 1cm 1.5cm;
+    width: 21cm;
+    height: auto;
+}
+.view_oficio {
+  padding: 0;
+  background: white;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+}
+.btn-oficios {
+  display: inline-block;
+  width: 8em;
+}
+button.btn.btn-info {
+  margin-left: 3em;
+}

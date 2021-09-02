@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% load bootstrap3 %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block custom_estilos %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap_multiselect_master/css/bootstrap-multiselect.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/form_geral.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/notificacao.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/select_user.css' %}">
+{% endblock %}
+
+{% block custom_js %}
+  {{ block.super }}
+  <script type="text/javascript" src="{% static 'bootstrap_multiselect_master/js/multiselect.js' %}"></script>
+{% endblock %}
+
+{% block conteudo %}
+<div class="container cadastro">
+  {% bootstrap_messages messages %}
+  <h3 class="text-center text-uppercase">
+    HABILITAR USUÁRIO(S) {% if usuarios_externos %}EXTERNOS{% else %}DA {{ user.profile.orgao_link.sigla|default:'UNIDADE' }}{% endif %}
+  </h3>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1" id="notificacao_content">
+      <div class="row infos">
+        <div class="col-md-10 col-md-offset-1">
+          <p>
+            Selecione o(s) usuário(s) que deseja habilitar no processo <strong>{{ num_processo }}</strong>. <br>
+            Em seguida, aperte o botão <strong class="text-success">Habilitar usuário(s)</strong>.
+          </p>
+          <small>
+            {% if usuarios_externos %}
+            Os usuários listados abaixo referem-se àqueles habilitados no módulo <strong>{{ modulo|upper }}</strong>,
+            mas vinculados a <strong>órgão diverso</strong> desta unidade.
+            {% else %}
+            Os usuários listados abaixo referem-se àqueles habilitados no módulo <strong>{{ modulo|upper }}</strong>. <br>
+            Caso não encontre o nome desejado, por favor, informe à administração da unidade.
+            {% endif %}
+          </small>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <form action="" method="post" class="form" enctype="multipart/form-data" id="idFormGeral">
+            <div class="bloco">
+              {% crispy form form.helper %}
+            </div>
+            <div class="row" id="notificacao_btns">
+              <div class="col-md-12 text-center">
+                <div class="form-group">
+                  <button type="submit" class="btn btn-success dp-btnsalvar btn_form_notificar">Habilitar usuário(s)</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <hr>
+          <p class="text-center info_plus">
+            Você pode habilitar um novo usuário a qualquer momento, <br>
+            basta clicar no link <strong>Usuários {% if usuarios_externos %}Externos{% endif %} <i class="fa fa-users" aria-hidden="true"></i></strong>
+            no menu lateral do processo respectivo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock conteudo %}
+
+{% block custom_js_final %}
+  {{ block.super }}
+  <script type="text/javascript" src="{% static 'js/filtro_users.js' %}"></script>
+{% endblock %}

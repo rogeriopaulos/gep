@@ -1,0 +1,103 @@
+{% extends "account/base.html" %}
+
+{% load static %}
+{% load templates_extras %}
+
+{% block custom_estilos %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{% static 'datatables.net-bs/css/dataTables.bootstrap.min.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/home_relatorios.css' %}"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+{% endblock %}
+
+{% block conteudo_painel %}
+  <div class="container-fluid cadastro">
+    <div class="title-home">
+      <h2 id="es-title">Relatórios</h2>
+      <p id="es-title_name"> <span class="divider">|</span> {{ user.get_full_name }}</p>
+    </div>
+    <div class="row dp-box_relatorio box_1">
+      <div class="col-md-6 table-responsive">
+        <h4>Processos cadastrados</h4>
+        <hr>
+        <table class="table" id="dp-table01" data-url="{% url 'account:processos_criados_json' %}">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Processo</th>
+              <th>Nome</th>
+              <th>Procedimento</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="col-md-6 table-responsive">
+        <h4>Processos com acesso</h4>
+        <hr>
+        <table class="table" id="dp-table02" data-url="{% url 'account:processos_vinculados_json' %}">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Processo</th>
+              <th>Nome</th>
+              <th>Procedimento</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+    <div class="row dp-box_relatorio box_3">
+      <div class="col-md-12 table-responsive">
+        <h4>Atos cadastrados</h4>
+        <hr>
+        <table class="table" id="dp-table03" data-url="{% url 'account:atos_json' %}">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Ato</th>
+              <th>Processo</th>
+              <th>Nome</th>
+              <th>Procedimento</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+    <div class="row dp-box_relatorio box_4">
+      <div class="col-md-12 table-responsive">
+        <h4>Atos pendentes</h4>
+        <blockquote class="dp-text_info">
+          <p>É considerado pendente o ato criado em procedimentos do GEP a qual exige a
+          <em>inserção</em> ou <em>geração</em> de documento que, por sua vez, não encontra-se
+          disponível para download.<br>Engloba os <strong>ofícios expedidos</strong>, <strong>recebidos</strong> e
+          os <strong>ofícios para empresas</strong>.</p>
+        </blockquote>
+        <hr>
+        <table class="table" id="dp-table04" data-url="{% url 'account:atos_pendentes_json' %}">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Ato</th>
+              <th>Processo</th>
+              <th>Nome</th>
+              <th>Procedimento</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block custom_js_final %}
+  {{ block.super }}
+  <script type="text/javascript" src="{% static 'datatables.net/js/jquery.dataTables.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'datatables.net-bs/js/dataTables.bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'datatables.net/plugins/date-euro.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/loadDataTables.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/home_relatiorio.js' %}"></script>
+{% endblock %}

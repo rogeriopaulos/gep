@@ -1,0 +1,35 @@
+{% extends "account/notificacoes/base.html" %}
+
+{% load static %}
+
+{% block conteudo_notificacoes %}
+  <div class="table-responsive dp-box_relatorio datatb-notify">
+    <div class="row" id="receive_notifications">
+      <div class="col-md-6">
+        <h4>Notificações Enviadas</h4>
+        <a href="{% url 'account:notificacoes' %}" class="change_notifications_table">
+          Ver notificações recebidas <i class="fa fa-exchange" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <table class="table" id="dp-notify_table03" data-tablecontent="Notificações Pessoais" data-url="{% url 'account:notifications_sent_json' %}">
+        <thead>
+          <tr>
+            <th class="text-center">Data</th>
+            <th class="text-center">Mensagem</th>
+            <th class="text-center">Receptor</th>
+            <th class="text-center">Lida</th>
+            <th class="text-center">Seção</th>
+            <th class="text-center">Link</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+{% endblock conteudo_notificacoes %}
+
+{% block custom_js_final %}
+  {{ block.super }}
+  <script type="text/javascript" src="{% static 'js/loadDataTablesNotifySent.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,151 @@
+.card-style {
+  background-color: #fbfbfb;
+  border: 3px solid grey;
+  border-radius: 15px 50px 30px 5px;
+  padding: 2%;
+  height: auto;
+  width: auto;
+  margin-bottom: 10px;
+  box-shadow: 5px 5px 5px gray;
+}
+
+.card-title {
+  font-size: 16px;
+}
+
+p.card-text {
+  font-size: 14px
+}
+
+/*Formatação de links dos cards*/
+.card a:link, .card a:visited {
+  color: #4d4d4d;
+  text-decoration: none;
+}
+
+.card a:hover {
+  color: #0d0d0d;
+  font: bold;
+}
+
+.links-cards a:hover {
+  font-size: 14.5px;
+}
+
+.classe_panel {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#link-detailcollapse a:link, #link-detailcollapse a:visited {
+  text-decoration: none;
+}
+
+.classe_panel {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 14px;
+}
+/* ========= Fim Conteúdo ========= */
+
+/* ========= Rodapé ========= */
+footer {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 50px 0px 20px 0px;
+  position: relative;
+}
+
+.item-rede-social {
+  float: right;
+}
+
+.rodape h4 {
+  color: #919496;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+/* ========= Fim ========= */
+
+
+/* ========================= Tipografia ======================== */
+h1 {
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  margin-bottom: 5px;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+h3 {
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+/*-- Linha Horizontal --*/
+hr.hr-processo {
+  color: solid grey;
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+/*-- Fim --*/
+
+/* ========================= Fim ======================== */
+
+/* ========================= Media queries ========================= */
+/* xs < 768 */
+@media screen and (max-width: 767px) {
+  h1 {
+    font-size: 40px;
+  }
+  .btn-custom {
+    margin: 10px 15px;
+  }
+}
+
+/* sm */
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 60px;
+  }
+}
+
+/* md */
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  h4.card-title {
+    font-size: 10px;
+  }
+  p.card-text {
+    display: none;
+  }
+  .links-cards, .links-cards a:hover {
+    font-size: 10px;
+  }
+}
+
+/* lg */
+@media screen and (min-width: 1200px) and (max-width: 1426px) {
+  h4.card-title {
+    font-size: 12.5px;
+  }
+  p.card-text {
+    font-size: 10px;
+  }
+  .links-cards, .links-cards a:hover{
+    font-size: 11px;
+  }
+}
+@media screen and (min-width: 1427px) and (max-width: 1546px) {
+  p.card-text {
+    font-size: 12px;
+  }
+}
+/*========================= Fim Media queries =========================*/

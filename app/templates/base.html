@@ -1,0 +1,121 @@
+{% load static %}
+{% load staticfiles %}
+{% load templates_extras %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> {% block redirecionamento %}{% endblock %}
+    <title>GEP {% block title %}{% endblock title %}</title>
+    <link rel="icon" href="{% static 'imagens/favicon.png' %}">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <!-- Font Awesome 4.7.0 -->
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <!-- Normalize CSS - Compatibilidade com Browsers Antigos -->
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/normalize.css' %}">
+    <!-- Estilo Customizado -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/core_base.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+    {% block custom_estilos %}{% endblock %}
+    <!-- Compatibilidade do HTML5 com IE menor que versão 9 -->
+    <!--[if lt IE 9]-->
+    <script type="text/javascript" src="{% static 'html5shiv/html5shiv-printshiv.min.js' %}"></script>
+    <!--[endif]-->
+    <!-- jQuery -->
+    <script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    {% include 'session_security/all.html' %}
+    {% block custom_js %}{% endblock %}
+
+</head>
+{% block transition %}
+<body class="transition">
+{% endblock %}
+  <nav class="navbar fixed-top navbar-inverse navbar-transparente">
+    {% if maintenance_mode %}<span class="badge" id="maintenance-warn">EM MANUTENÇÃO</span>{% endif %}
+    <div class="container">
+      <!-- header -->
+      <div class="navbar-header">
+        <!-- botao toggle -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#barra-navegacao">
+          <span class="sr-only">Alternar Navegação</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="{% url 'core:home' %}" class="navbar-brand"><span class="img-logo"></span></a>
+      </div>
+      <!-- Barra de Navegação -->
+      <div class="collapse navbar-collapse" id="barra-navegacao">
+        {% if user.is_authenticated %}
+        <form class="navbar-form navbar-left" type='search' id="pesquisa" role="search" action="{% url 'busca_multi_orgaos' %}">
+          <input class="form-control" type="text" placeholder="Nº do processo, nome da operação..." name="q" value="{{request.GET.q}}">
+          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="{% url 'core:home' %}">Home</a></li>
+          <li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Processos<b class="caret"></b></a>
+            <ul class="dropdown-menu transition">
+              <li>
+                <a href="{% url 'adm:criar_processo_adm' %}">Iniciar Novo Processo</a>
+              </li>
+              <li>
+                <a href="{% url 'adm:listar_adm' %}">Listar Processos</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="{% url 'account:notificacoes' %}">
+              <i class="fa fa-bell" data-toggle="tooltip" data-placement="bottom" title="Ver Notificações"></i>
+              <span class="badge notifier">{% if unread_notifications > 0 %}{{ unread_notifications }}{% endif %}</span>
+            </a>
+          </li>
+          <li><a href="{% url 'account:logout' %}">Sair</a></li>
+        {% else %}
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#" data-toggle="modal" data-target="#modal_soliciar_acesso">Solicitar Acesso</a>
+          </li>
+          <li>
+            <a href="{% url 'core:home' %}">Entrar</a>
+          </li>
+        </ul>
+        {% endif %}
+    </div>
+    <!-- /container -->
+  </nav>
+  <!-- /nav -->
+
+  {% block modal-login %}{% endblock %}
+
+  {% block modal_recuperacao_senha %}{% endblock modal_recuperacao_senha %}
+  {% block modal_solicitar_acesso %}{% endblock modal_solicitar_acesso %}
+
+  {% block conteudo %}{% endblock %}
+
+  <!-- Rodape -->
+  <footer class="rodape container-fluid">
+    <div class="links-row">
+      <div>
+        <span class="img-logo"></span>
+        
+      </div>
+    </div>
+    <div class="credits-row">
+      <p>&copy; {% now "Y" %}</p>
+    </div>
+  </footer>
+
+  <!-- Arquivos JavaScript Personalizado -->
+  {% block custom_js_final %}{% endblock %}
+  <script type="text/javascript" src="{% static 'js/gep.js' %}"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+
+</body>
+
+</html>

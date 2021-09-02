@@ -1,0 +1,35 @@
+.dp-colwhite {
+    background: #f5f5f5;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: solid 1px #ddd;
+    border-radius: 10px;
+    height: auto;
+}
+button.btn.btn-primary.btn-block.text-uppercase.dp-btnsalvar {
+    margin-top: 1rem;
+}
+
+#btnFormsetRemove {
+    margin-top: 5px;
+}
+
+#divInvestigadosAdicionados, #divInvestigadosAdicionados {
+    margin-top: 20px;
+    border-top: 5px double gray;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+#fonesAdicionadosTable, #investigadosAdicionadosTable {
+    background-color: white;
+    box-shadow: 3px 3px rgba(0, 0, 0, .5);
+}
+
+#divInvestigadoLab {
+    margin-top: 10px;
+}
+
+#btnSaveFormset {
+    margin-top: 10px;
+}

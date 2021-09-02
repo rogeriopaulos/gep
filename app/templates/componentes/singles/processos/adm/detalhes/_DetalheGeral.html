@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load bootstrap3 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block custom_estilos %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/processos_detalhes.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap_multiselect_master/css/bootstrap-multiselect.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'js/bootstrap-daterangepicker-master/daterangepicker.css' %}">
+{% endblock %}
+
+{% block custom_js %}
+  <script type="text/javascript" src="{% static 'bootstrap_multiselect_master/js/multiselect.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap-daterangepicker-master/moment.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap-daterangepicker-master/daterangepicker.js' %}"></script>
+{% endblock %}
+
+{% block conteudo %}
+<div class="container-fluid cadastro" id="container_02">
+  {% if messages %}
+    {% bootstrap_messages messages %}
+  {% endif %}
+  <div class="row">
+    {% if processo_adm.arquivar == False %}
+      {% include 'componentes/singles/processos/adm/detalhes/SideBar.html' %}
+    {% endif %}
+    <main>
+      <div class="col-md-10 {% if processo_adm.arquivar == True %}col-md-offset-1{% endif %}">
+        {% include 'componentes/singles/processos/adm/detalhes/Extrato.html' %}
+        {% if atos %}
+          {% include 'componentes/singles/processos/adm/detalhes/Atos.html' %}
+        {% endif %}
+      </div>
+    </main>
+  </div>
+</div>
+{% endblock %}
+
+{% block custom_js_final %}
+  <script type="text/javascript" src="{% static 'js/filtro_atos_tipos.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/anularAtos.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/hideAlert.js' %}"></script>
+{% endblock %}

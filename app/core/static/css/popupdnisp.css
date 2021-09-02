@@ -1,0 +1,18 @@
+.alert.alert-danger.alert-dismissable.alert-link {
+  display: none;
+}
+p.dp-popdnisp {
+    color: #949992;
+    font-size: 1rem;
+    margin: 0 5px -3px 5px;
+}
+
+ul {
+  border: .1rem solid #a7a7a7;
+  border-radius: 10px;
+  padding-bottom: 5px;
+}
+p.dp-textopopup {
+  font-size: 1.2rem;
+
+}

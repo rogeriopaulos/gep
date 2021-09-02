@@ -1,0 +1,36 @@
+{% include 'componentes/shares/ModalAnulacao.html' with url=anulacao_baseurl %}
+<div class="borda-texto">
+    <!--Header dos Atos-->
+  {% include 'componentes/singles/processos/adm/detalhes/AtosHeader.html' %}
+  <!-- Fim do Header dos Atos -->
+  {% for item in atos %}
+  <div class="panel panel-default classe_panel ato_filtro {% if item.anulado %}anulado{% endif %}">
+    <div class="panel-heading atos clickable">
+      {% include 'componentes/singles/processos/adm/detalhes/AtosPanelHeader.html' %}
+    </div>
+    <div class="panel-body {% if item.anulado %}anulado-body{% endif %}">
+      {% if 'DESPACHO' in item.get_tipo_ato_display %}
+        {% include 'componentes/singles/processos/adm/detalhes/atos/Despacho.html' %}
+      {% elif 'OFÍCIO INTERNO' in item.get_tipo_ato_display %}
+        {% include 'componentes/singles/processos/adm/detalhes/atos/OficioInterno.html' %}
+      {% elif 'OFÍCIO EXTERNO' in item.get_tipo_ato_display %}
+        {% include 'componentes/singles/processos/adm/detalhes/atos/OficioExterno.html' %}
+      {% elif 'MÍDIA' in item.get_tipo_ato_display %}
+        {% include 'componentes/singles/processos/adm/detalhes/atos/Midia.html' %}
+      {% elif 'OFÍCIO GABINETE' in item.get_tipo_ato_display %}
+        {% include 'componentes/singles/processos/adm/detalhes/atos/OficioGabinete.html' %}
+      {% elif 'DOCUMENTO' in item.get_tipo_ato_display %}
+          {% include 'componentes/singles/processos/adm/detalhes/atos/Documento.html' %}
+      {% elif 'EMPRESAS' in item.get_tipo_ato_display %}
+        {% include 'componentes/singles/processos/adm/detalhes/atos/OficioEmpresas.html' %}
+      {% else %}
+        {% include 'componentes/singles/processos/adm/detalhes/atos/Status.html' %}
+      {% endif %}
+      {% if item.anulado %}
+        <p id="label-motivo"><strong>Motivo da anulação:</strong></p>
+        <p id="texto-motivo">{{ item.motivo_anulacao }}</p>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>

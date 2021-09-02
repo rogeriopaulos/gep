@@ -1,0 +1,46 @@
+{% load static %}
+
+<div class="col-md-10 col-md-offset-1">
+  <div class="panel panel-default">
+    <div class="panel-heading link-lista">
+      <a href="{{resultado.url}}"><strong>{{ forloop.counter }}. {{ resultado.title }}</strong>{% if resultado.meta.get_titulo %}| {{ resultado.meta.get_titulo|upper }}{% endif %}</a>
+    </div>
+    <div class="panel-body">
+      <div class="col-md-12">
+        {% if resultado.description %}
+          <strong>Descrição:</strong><br />
+          <p>{{ resultado.description }}</p>
+          <hr class="hr-processo">
+          <br />
+        {% endif %}
+      </div>
+      <div class="col-md-4">
+        {% if resultado.meta.get_origem %}
+        <span class="text-right"><strong>Orgão/Autoridade oficiante/origem:</strong> {{ resultado.meta.get_origem }}<br/></span>
+        {% endif %}
+      </div>
+      <div class="col-md-4">
+        {% if resultado.meta.get_procedimento %}
+        <span class="text-left"><strong>Referente ao IPL/Processo nº:</strong> {{ resultado.meta.get_procedimento }}</span><br />
+        {% endif %}
+      </div>
+      <div class="col-md-4">
+        {% if resultado.meta.get_criacao %}
+        <span class="text-left"><strong>Inserido em:</strong> {{ resultado.meta.get_criacao }}</span><br />
+        {% endif %}
+      </div>
+    </div>
+    <div class="panel-footer">
+      {% if 'Quebra' in resultado.meta.get_tipo_procedimento %}
+        <img src="{% static "\imagens\interceptacao32x32.png"%}" style="margin-right: 10px"/>
+      {% elif 'LAB' in resultado.meta.get_tipo_procedimento %}
+        <img src="{% static "\imagens\lab-ld32x32.png"%}" style="margin-right: 10px"/>
+      {% elif 'Administrativo' in resultado.meta.get_tipo_procedimento %}
+        <img src="{% static "/imagens/administrativo32x32.png"%}" style="margin-right: 10px"/>
+      {% elif 'Inteligência' in resultado.meta.get_tipo_procedimento %}
+        <img src="{% static "/imagens/inteligencia32x32.png"%}" style="margin-right: 10px"/>
+      {% endif %}
+        <em>{{ resultado.meta.get_tipo_procedimento }}</em>
+    </div>
+  </div>
+</div>

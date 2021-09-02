@@ -1,0 +1,93 @@
+{% load templates_extras %}
+
+<div class="row">
+  <div class="col-md-4">
+    <strong>
+      <p>Data de criação:
+    </strong> {{ item.criacao|date:'d/m/Y à\s H:i' }}</p>
+  </div>
+  <div class="col-md-4">
+    <strong>
+      <p class="link-lista">Assunto:
+    </strong> {{ item.controlempresas.assunto }}</p>
+  </div>
+  <div class="col-md-4">
+    <strong>
+      <p>Inserido por:
+    </strong> <em>{{ item.autor }}</em></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <strong>
+      <p>Descrição:
+    </strong> {{ item.descricao }}<br>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 table-responsive tabelas">
+    <table class="table table-striped table-bordered" style="font-size: 12px">
+      <thead>
+        <tr>
+          <th class="text-center">Empresa</th>
+          <th class="text-center">Número do ofício</th>
+          <th class="text-center">Autoridade que subscreve</th>
+          <th class="text-center">Criado em</th>
+          <th class="text-center">Arquivo</th>
+          <th class="text-center">Confirmado | Funcionário</th>
+          <th class="text-center">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for of in item.controlempresas.get_oficios %}
+        <tr>
+          <td class="text-center">{{ of.get_empresa_display }}</td>
+          <td class="text-center">{{ of.num_oficio }}</td>
+          <td class="text-center">{{ of.autoridade }}</td>
+          <td class="text-center">{{ of.criacao|date:'d/m/Y' }}</td>
+          <td class="text-center">
+            {% if of.arquivo %}
+            <a href="{{ of.arquivo.url }}" target="_blank">
+              <button type="button" class="btn btn-default btn-sm">Download</button>
+            </a>
+            <a href="javascript:void(0);" target="popup"
+              onclick="PopupCenterDual('{% url 'adm:ofempresas_upload_arquivo' of.pk %}','popup','600','250'); return false;">
+              <button type="button" class="btn btn-default btn-sm">Alterar</button>
+            </a>
+            {% else %}
+            <a href="javascript:void(0);" target="popup"
+              onclick="PopupCenterDual('{% url 'adm:ofempresas_upload_arquivo' of.pk %}','popup','600','250'); return false;">
+              <button type="button" class="btn btn-default btn-sm">Inserir Ofício</button>
+            </a>
+            {% endif %}
+          </td>
+          <td class="text-center">
+            {% if of.confirmacao %}
+              Sim | {{ of.nome_confirm|default:"Não Informado" }}
+            {% else %}
+              <a href="javascript:void(0);" target="popup"
+                onclick="PopupCenterDual('{% url 'adm:ofempresas_confirmar' of.pk %} ','popup','600','250'); return false;">
+                <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal_confirmacao">
+                  Confirmar Recebimento
+                </button>
+              </a>
+            {% endif %}
+          </td>
+          <td class="text-center">
+          {% if not of.controlempresas.anulado %}
+            <a class="btn btn-success btn-sm glyphicon glyphicon-pencil" href="{% url 'adm:ofempresas_editar' of.pk %}"
+              data-toggle="tooltip" data-placement="left" title="Modificar Ofício"></a>
+            <a class="btn btn-primary btn-sm glyphicon glyphicon-bell" href="{% url 'notifier:oficio_empresa' model_pk=of.pk %}"
+              data-toggle="tooltip" data-placement="left" title="Notificar"></a>
+          {% else %}
+            -----
+          {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>

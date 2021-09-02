@@ -1,0 +1,42 @@
+{% extends "account/notificacoes/base.html" %}
+
+{% load static %}
+
+{% block conteudo_notificacoes %}
+  <div class="table-responsive dp-box_relatorio datatb-notify">
+    <div class="row" id="receive_notifications">
+      <div class="col-md-6">
+        <h4>Notificações Recebidas</h4>
+        <a href="{% url 'account:notifications_sent' %}" class="change_notifications_table">
+          Ver notificações enviadas <i class="fa fa-exchange" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="col-md-6 text-right">
+        <form action="{% url 'account:set_all_notifications_read' %}" method="get" enctype="multipart/form-data">
+          <button type="submit" class="btn btn-default" id="all_read_btn">
+            <i class="fa fa-envelope-open" aria-hidden="true"></i> Marcar todas como lida
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <table class="table" id="dp-notify_table01" data-tablecontent="Notificações Pessoais" data-url="{% url 'account:notifications_receive_json' %}">
+        <thead>
+          <tr>
+            <th class="text-center">Data</th>
+            <th class="text-center">Mensagem</th>
+            <th class="text-center">Seção</th>
+            <th class="text-center">Link</th>
+            <th class="text-center">Lida</th>
+            <th class="text-center"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+{% endblock conteudo_notificacoes %}
+
+{% block custom_js_final %}
+  {{ block.super }}
+  <script type="text/javascript" src="{% static 'js/loadDataTablesNotifyReceive.js' %}"></script>
+{% endblock %}
