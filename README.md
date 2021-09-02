@@ -1,6 +1,6 @@
 # GEP - Gestão Eletrônica de Processos
 
-![GEP Version](https://img.shields.io/badge/gep-v1.0-blue)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/rogeriopaulos/gep?style=flat-square)
 ![Python Version](https://img.shields.io/badge/python-v3.8-yellow)
 ![Django Version](https://img.shields.io/badge/django-v2.2-green)
 
