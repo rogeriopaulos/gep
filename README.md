@@ -24,7 +24,7 @@ Este projeto segue as diretrizes do versionamento semântico (SemVer). Para maio
 
 ## Histórico de lançamentos
 
-Conferir os [_Relases Notes_](https://github.com/rogeriopaulos/tmp_esisp/releases).
+Conferir os [_Relases Notes_](https://github.com/rogeriopaulos/gep/releases).
 
 ## Contribuições
 
