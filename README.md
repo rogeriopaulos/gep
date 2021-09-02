@@ -28,6 +28,17 @@ Conferir os [_Relases Notes_](https://github.com/rogeriopaulos/gep/releases).
 
 ## Contribuições
 
+### Desenvolvedores:
+
+- [@rogeriopaulos](https://github.com/rogeriopaulos)
+
+### Contribuidores:
+
+- [@Herdeson](https://github.com/Herdeson)
+- @venceslaufelipe
+
+### Para contribuir
+
 Para saber como contribuir para o projeto, acesse [Contribuições](docs/CONTRIBUTING.md).
 
 ## Extras
