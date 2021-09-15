@@ -35,7 +35,7 @@ Conferir os [_Relases Notes_](https://github.com/rogeriopaulos/gep/releases).
 ### Contribuidores:
 
 - [@Herdeson](https://github.com/Herdeson)
-- @venceslaufelipe
+- [@venfelipe](https://github.com/venfelipe)
 
 ### Para contribuir
 
